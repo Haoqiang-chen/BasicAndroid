@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidfragment.MyFragmentActivity">
+
+    <TextView
+        android:id="@+id/fragment_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用于学习Fragment的相关知识"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_activity_title"/>
+
+    <fragment
+        android:id="@+id/fragment_second"
+        android:name="cc.aiknow.basicandroid.androidfragment.MySecondFragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/fragment_container"
+        android:layout_marginTop="20sp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/fragment_replace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_second"
+        android:layout_marginTop="10dp"
+        android:text="使用第二个Fragment替换第一个Fragment"
+        android:textAllCaps="false"/>
+
+</android.support.constraint.ConstraintLayout>

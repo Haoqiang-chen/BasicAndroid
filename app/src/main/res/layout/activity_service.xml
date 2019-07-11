@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidservice.ServiceActivity">
+
+    <TextView
+        android:id="@+id/serviceActivityDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="用于学习Service(服务)的Activity"/>
+
+    <Button
+        android:id="@+id/intentServiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceActivityDescription"
+        android:layout_marginTop="40dp"
+        android:text="启动IntentService"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/serviceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/intentServiceButton"
+        android:layout_marginTop="20dp"
+        android:text="启动Service"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/foregroundServiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/serviceButton"
+        android:layout_marginTop="20dp"
+        android:text="启动前台服务"/>
+
+</android.support.constraint.ConstraintLayout>

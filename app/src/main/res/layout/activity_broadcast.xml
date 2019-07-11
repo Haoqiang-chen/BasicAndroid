@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidbroadcast.BroadcastActivity">
+
+    <TextView
+        android:id="@+id/boradcastActivityDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="用于学习广播接收器" />
+
+    <Button
+        android:id="@+id/buttonBroadcastRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boradcastActivityDes"
+        android:layout_marginTop="20dp"
+        android:text="动态注册广播接收器" />
+    <Button
+        android:id="@+id/buttonSendBroadcast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonBroadcastRegister"
+        android:layout_marginTop="20dp"
+        android:text="发送自定义广播"
+        />
+
+    <Button
+        android:id="@+id/buttonUnRegisterBroadcast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSendBroadcast"
+        android:layout_marginTop="20dp"
+        android:text="取消注册广播接收器"
+        />
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidproceethread.ProcessAndThreadActivity">
+
+    <TextView
+        android:id="@+id/processAndThreadActivityDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="用于学习进程和线程的Activity"/>
+
+    <ImageView
+        android:id="@+id/showImageFromInternet"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/processAndThreadActivityDescription"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:background="#FF83FA" />
+
+    <ImageView
+        android:id="@+id/showImageFromInternet2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toEndOf="@id/showImageFromInternet"
+        app:layout_constraintTop_toBottomOf="@id/processAndThreadActivityDescription"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        android:background="#FF0872" />
+
+    <TextView
+        android:id="@+id/progressBarDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showImageFromInternet"
+        android:layout_marginTop="20dp"
+        android:text="采用异步任务更新进度条"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarDes"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/progressBarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
+        android:text="启动后台操作"/>
+
+    <TextView
+        android:id="@+id/textImageJump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarButton"
+        android:layout_marginTop="20dp"
+        android:text="采用Handler在线程之间传递消息"/>
+
+    <ImageView
+        android:id="@+id/imageJump"
+        android:layout_width="33dp"
+        android:layout_height="58dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toEndOf="@id/textImageJump"
+        app:layout_constraintTop_toTopOf="@id/textImageJump"
+        app:layout_constraintBottom_toBottomOf="@id/textImageJump"
+        android:layout_marginStart="20dp"/>
+
+</android.support.constraint.ConstraintLayout>

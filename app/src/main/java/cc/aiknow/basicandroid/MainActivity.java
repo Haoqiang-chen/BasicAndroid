@@ -25,6 +25,7 @@ import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelper;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerViewItemClickListener;
+import cc.aiknow.basicandroid.androidretrofit.RetrofitActivity;
 import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("learnView");
             add("Fragment");
             add("RecyclerView");
+            add("Retrofit");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("learnView", LearnViewActivity.class);
             put("Fragment", MyFragmentActivity.class);
             put("RecyclerView", RecyclerActivity.class);
+            put("Retrofit", RetrofitActivity.class);
         }};
     }
 

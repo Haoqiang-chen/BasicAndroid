@@ -2,13 +2,13 @@ package cc.aiknow.basicandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,6 +65,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
 
         GsonTest.serialization();
         GsonTest.deserialization();
+
+        // File实现了序列化接口可被intent传递
+//        File file = new File("");
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable("s", file);
     }
 
     private void initDataBase() {

@@ -1,9 +1,9 @@
 package cc.aiknow.basicandroid.androidview;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import cc.aiknow.basicandroid.R;
 

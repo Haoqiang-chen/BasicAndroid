@@ -4,9 +4,10 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 /**
  * IntentService服务是使用工作线程逐一处理各个启动请求的服务

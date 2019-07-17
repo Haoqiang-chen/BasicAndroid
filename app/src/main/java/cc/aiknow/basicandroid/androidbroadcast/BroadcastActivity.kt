@@ -3,9 +3,9 @@ package cc.aiknow.basicandroid.androidbroadcast
 import android.Manifest
 import android.content.Intent
 import android.content.IntentFilter
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
 import kotlinx.android.synthetic.main.activity_broadcast.*
 

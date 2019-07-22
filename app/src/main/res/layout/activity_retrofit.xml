@@ -44,4 +44,15 @@
         app:layout_constraintTop_toBottomOf="@id/translateButton"
         android:layout_marginTop="20dp"/>
 
+    <Button
+        android:id="@+id/translateButtonByLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/targetWordText"
+        android:layout_marginTop="20dp"
+        android:text="使用LiveData显式翻译结果"
+        android:textAllCaps="false"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

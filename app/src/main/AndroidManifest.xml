@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".androidretrofit.RetrofitActivity"></activity>
+        <activity android:name=".androidarch.ArchActivity"></activity>
+        <activity android:name=".androidretrofit.RetrofitActivity" />
         <activity android:name=".androidrecyclerview.RecyclerActivity" />
         <activity android:name=".androidfragment.MyFragmentActivity" />
         <activity android:name=".androidview.LearnViewActivity" />

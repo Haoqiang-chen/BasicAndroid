@@ -18,6 +18,7 @@ import java.util.Map;
 import cc.aiknow.basicandroid.androidJson.GsonTest;
 import cc.aiknow.basicandroid.androidJson.JsonTest;
 import cc.aiknow.basicandroid.androidactivity.AndroidActivity;
+import cc.aiknow.basicandroid.androidarch.ArchActivity;
 import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("Fragment");
             add("RecyclerView");
             add("Retrofit");
+            add("AndroidArch");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("Fragment", MyFragmentActivity.class);
             put("RecyclerView", RecyclerActivity.class);
             put("Retrofit", RetrofitActivity.class);
+            put("AndroidArch", ArchActivity.class);
         }};
     }
 

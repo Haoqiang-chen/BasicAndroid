@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidarch.ArchActivity">
+
+    <TextView
+        android:id="@+id/archTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="用于学习Android Architecture Components的相关知识\n1.使用Lifecycle aware components实现在组件生命周期时的响应操作\n
+2.自定义生命周期持有者并为其添加观察者"/>
+
+    <Button
+        android:id="@+id/archCustomLifecycleOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/archTitle"
+        android:layout_marginTop="20dp"
+        android:text="测试自定义的Lifecycle的持有者"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/liveDataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/archCustomLifecycleOwner"
+        android:layout_marginTop="20dp"
+        android:text="用于显示LiveData数据"/>
+
+    <Button
+        android:id="@+id/liveDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveDataText"
+        android:layout_marginTop="10dp"
+        android:text="更新数据"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

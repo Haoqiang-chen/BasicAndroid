@@ -8,16 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import cc.aiknow.basicandroid.R;
 
 public class RetrofitActivity extends AppCompatActivity {
 
     private EditText sourceWordText, targetWordText;
-    private Button translateButton;
+    private Button translateButton, translateButtonByLiveData;
     private TranslateRequest translateRequest;
     private String sourceWord;
     private Requesthandler requesthandler;
+    private RequestViewModel requestViewModel;
 
 
     @Override
@@ -29,12 +32,15 @@ public class RetrofitActivity extends AppCompatActivity {
         translateRequest.setHandler(requesthandler);
         initView();
         initListener();
+        requestViewModel = ViewModelProviders.of(this).get(RequestViewModel.class);
+        requestViewModel.getResult().observe(this, requestObserver);
     }
 
     private void initView() {
         sourceWordText = findViewById(R.id.sourceWordText);
         targetWordText = findViewById(R.id.targetWordText);
         translateButton = findViewById(R.id.translateButton);
+        translateButtonByLiveData = findViewById(R.id.translateButtonByLiveData);
     }
 
     private void initListener() {
@@ -47,6 +53,18 @@ public class RetrofitActivity extends AppCompatActivity {
                     sourceWord = sourceWordText.getHint().toString();
                 }
                 translateRequest.requestTranslateResult(sourceWord);
+            }
+        });
+
+        translateButtonByLiveData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sourceWordText.getText() != null && !sourceWordText.getText().toString().equals("")) {
+                    sourceWord = sourceWordText.getText().toString();
+                } else {
+                    sourceWord = sourceWordText.getHint().toString();
+                }
+                requestViewModel.requestTranslateRequest(sourceWord);
             }
         });
     }
@@ -64,4 +82,11 @@ public class RetrofitActivity extends AppCompatActivity {
             sourceWord = null;
         }
     }
+
+    private Observer<String> requestObserver = new Observer<String>() {
+        @Override
+        public void onChanged(String targetWord) {
+            targetWordText.setText(targetWord);
+        }
+    };
 }

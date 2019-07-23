@@ -16,6 +16,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         Toast.makeText(context, "接收到自定义广播：" + intent.getStringExtra("broadcastData"), Toast.LENGTH_SHORT).show()
+        // 用于保证广播接收器在onReceive方法返回后依旧保持活动状态
         val pendingResult = goAsync()
         Thread(object: Runnable{
             override fun run() {

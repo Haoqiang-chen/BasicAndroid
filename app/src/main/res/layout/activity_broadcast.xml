@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/RetrofitStyle.BroadCast"
     tools:context=".androidbroadcast.BroadcastActivity">
 
+    <!--使用TextAppearance设置Text的样式，但是方法级别最低-->
     <TextView
         android:id="@+id/boradcastActivityDes"
         android:layout_width="match_parent"
@@ -13,6 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
         android:text="用于学习广播接收器" />
 
     <Button

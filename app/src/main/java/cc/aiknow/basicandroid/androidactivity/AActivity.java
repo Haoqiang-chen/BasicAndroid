@@ -82,7 +82,7 @@ public class AActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Toast.makeText(this, "栈顶单例模式接受Intent", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "栈顶单例模式接受Intent：调用onNewIntent", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, getIntent().getStringExtra("source"), Toast.LENGTH_SHORT).show();
         // 更新Intent 否则getIntent依旧返回原始的Intent
         setIntent(intent);

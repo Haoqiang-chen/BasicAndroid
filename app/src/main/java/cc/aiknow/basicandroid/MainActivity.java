@@ -28,6 +28,7 @@ import cc.aiknow.basicandroid.androidrecyclerview.RecyclerActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerViewItemClickListener;
 import cc.aiknow.basicandroid.androidretrofit.RetrofitActivity;
 import cc.aiknow.basicandroid.androidservice.ServiceActivity;
+import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 
 /**
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("RecyclerView");
             add("Retrofit");
             add("AndroidArch");
+            add("AndroidStore");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("RecyclerView", RecyclerActivity.class);
             put("Retrofit", RetrofitActivity.class);
             put("AndroidArch", ArchActivity.class);
+            put("AndroidStore", StoreActivity.class);
         }};
     }
 

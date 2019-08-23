@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cc.aiknow.basicandroid">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- INTERNET是普通权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 以下是危险权限需要动态申请 -->
     <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".androidarch.ArchActivity"></activity>
+        <activity android:name=".androidstore.StoreActivity"></activity>
+        <activity android:name=".androidarch.ArchActivity" />
         <activity android:name=".androidretrofit.RetrofitActivity" />
         <activity android:name=".androidrecyclerview.RecyclerActivity" />
         <activity android:name=".androidfragment.MyFragmentActivity" />
@@ -59,6 +60,7 @@
         <activity android:name=".androidactivity.BActivity">
             <intent-filter>
                 <action android:name="activityB_action" />
+
                 <category android:name="acticityB_categories" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

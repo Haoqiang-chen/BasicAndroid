@@ -47,4 +47,35 @@
         android:layout_marginTop="20dp"
         android:text="启动前台服务"/>
 
+    <Button
+        android:id="@+id/bindServiceTestButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foregroundServiceButton"
+        android:layout_marginTop="20dp"
+        android:text="测试绑定式服务"/>
+
+    <Button
+        android:id="@+id/bindServiceUnbindButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bindServiceTestButton"
+        android:layout_marginTop="20dp"
+        android:text="解除绑定式服务"/>
+
+    <Button
+        android:id="@+id/bindServiceMessengerClientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bindServiceUnbindButton"
+        android:layout_marginTop="20dp"
+        android:text="客户端采用Messsager与服务端进行交互"
+        android:textAllCaps="false"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

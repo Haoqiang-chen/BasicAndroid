@@ -77,14 +77,14 @@ public class MyService extends Service {
         myHandler.sendMessage(message);
         /**
          * onStartCommand()方法必须返回以下三种常量之一
-         * 以描述系统在服务终止的情况下如何继续运行服务：
-         * 1.START_NOT_STICKY：若有挂起的Intent的需要传递，则启动服务
+         * 以描述服务运行的进程被Android系统杀死后，如何继续运行服务：
+         * 1.START_NOT_STICKY：所在进程被意外杀死后，不会重新创建该Service，若想重新创建该Service实例，必须调用startService启动该服务
          *
-         * 2.START_STICKY：会重建服务并调用onStartCommand，挂起Intent
-         * 依次传递，若没有挂起Intent则使用空Intent调用onStartCommand
+         * 2.START_STICKY：所在进程被意外杀死后，Android系统会重建该服务并调用onStartCommand，若有挂起的Intent则依次传递，若没有则传递一个空Intent
          *
-         * 3.START_REDELIVER_INTENT：重建服务，并通过传递给服务的最后
-         * 一个Intent调用onStartCommand，任何挂起的Intent依次传递
+         * 3.START_REDELIVER_INTENT：所在进程被意外杀死后，Android系统会重建该服务并调用onStartCommond，然后传递杀死前最后一个传递的Intent，然后任何挂起的Intent依次传递
+         *
+         * 2.3可用于进程拉活
          */
         return START_NOT_STICKY;
     }

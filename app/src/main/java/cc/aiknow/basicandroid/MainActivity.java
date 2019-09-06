@@ -1,5 +1,9 @@
 package cc.aiknow.basicandroid;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +31,7 @@ import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelpe
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerViewItemClickListener;
 import cc.aiknow.basicandroid.androidretrofit.RetrofitActivity;
+import cc.aiknow.basicandroid.androidsaveprocess.JobSchedulerService;
 import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     private List<String> itemNames;
     private RecyclerView recyclerView;
     private MainRecyclerViewAdapter adapter;
+
+    private JobScheduler jobScheduler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
 //        File file = new File("");
 //        Bundle bundle = new Bundle();
 //        bundle.putSerializable("s", file);
+
+        initJobScheduler();
     }
 
     private void initDataBase() {
@@ -111,5 +120,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
         Log.i("Mypostion", String.valueOf(position));
         Intent i = new Intent(this, itemDataBase.get(itemNames.get(position)));
         startActivity(i);
+    }
+
+    private void initJobScheduler() {
+        // JobInfo用于设置任务调度的条件
+        int jobId = 1;
+        JobInfo.Builder builder = new JobInfo.Builder(jobId, new ComponentName(getPackageName(), JobSchedulerService.class.getName()));
+        builder.setPeriodic(1000);
+        // job调度程序
+        jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        // 调度成功时返回被调度的job ID，失败则返回一个负数
+        if (jobScheduler.schedule(builder.build()) >= 0) {
+            Log.e("Job", "JonScheduler  success");
+        } else {
+            Log.e("Job", "JonScheduler  failure");
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        jobScheduler.cancel(1);
     }
 }

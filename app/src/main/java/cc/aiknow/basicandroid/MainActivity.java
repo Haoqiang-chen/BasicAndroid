@@ -25,6 +25,7 @@ import cc.aiknow.basicandroid.androidactivity.AndroidActivity;
 import cc.aiknow.basicandroid.androidarch.ArchActivity;
 import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
+import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelper;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("Retrofit");
             add("AndroidArch");
             add("AndroidStore");
+            add("ListView");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("Retrofit", RetrofitActivity.class);
             put("AndroidArch", ArchActivity.class);
             put("AndroidStore", StoreActivity.class);
+            put("ListView", ListViewActivity.class);
         }};
     }
 

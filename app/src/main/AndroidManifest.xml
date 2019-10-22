@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cc.aiknow.basicandroid">
-
     <!-- INTERNET是普通权限 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 以下是危险权限需要动态申请 -->
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -14,8 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
+        <activity android:name=".androidlistview.ListViewActivity"></activity>
         <activity android:name=".androidstore.StoreActivity" />
         <activity android:name=".androidarch.ArchActivity" />
         <activity android:name=".androidretrofit.RetrofitActivity" />
@@ -53,12 +51,14 @@
             android:name=".androidservice.MyMessengerBindService"
             android:enabled="true"
             android:exported="false" />
-        <service android:name=".androidsaveprocess.JobSchedulerService"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name=".androidsaveprocess.JobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity android:name=".androidproceethread.ProcessAndThreadActivity" />
         <activity android:name=".androidservice.ServiceActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:excludeFromRecents="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

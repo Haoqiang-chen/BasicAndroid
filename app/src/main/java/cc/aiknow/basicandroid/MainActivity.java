@@ -38,7 +38,7 @@ import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 
 /**
- * @Description: 主界面
+ * @Description: 主界面 
  * @Author: chen
  * @Date: 2019/6/2
  */

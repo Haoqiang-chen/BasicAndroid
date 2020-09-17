@@ -25,6 +25,8 @@ import cc.aiknow.basicandroid.androidactivity.AndroidActivity;
 import cc.aiknow.basicandroid.androidarch.ArchActivity;
 import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
+import cc.aiknow.basicandroid.androidimage.ImageActivity;
+import cc.aiknow.basicandroid.androidlayout.CoordinatorLayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("AndroidArch");
             add("AndroidStore");
             add("ListView");
+            add("Image");
+            add("Layout");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -111,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("AndroidArch", ArchActivity.class);
             put("AndroidStore", StoreActivity.class);
             put("ListView", ListViewActivity.class);
+            put("Image", ImageActivity.class);
+            put("Layout", CoordinatorLayoutActivity.class);
         }};
     }
 

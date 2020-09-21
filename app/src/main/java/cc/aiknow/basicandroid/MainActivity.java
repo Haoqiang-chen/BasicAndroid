@@ -26,7 +26,7 @@ import cc.aiknow.basicandroid.androidarch.ArchActivity;
 import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
 import cc.aiknow.basicandroid.androidimage.ImageActivity;
-import cc.aiknow.basicandroid.androidlayout.CoordinatorLayoutActivity;
+import cc.aiknow.basicandroid.androidlayout.LayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
@@ -38,6 +38,7 @@ import cc.aiknow.basicandroid.androidsaveprocess.JobSchedulerService;
 import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
+import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 
 /**
  * @Description: 主界面 
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("ListView");
             add("Image");
             add("Layout");
+            add("viewEvent");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -116,7 +118,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("AndroidStore", StoreActivity.class);
             put("ListView", ListViewActivity.class);
             put("Image", ImageActivity.class);
-            put("Layout", CoordinatorLayoutActivity.class);
+            put("Layout", LayoutActivity.class);
+            put("viewEvent", ViewEventActivity.class);
         }};
     }
 

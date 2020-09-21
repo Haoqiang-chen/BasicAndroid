@@ -13,7 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".androidlayout.CoordinatorLayoutActivity"></activity>
+        <activity android:name=".androidvieweventandanima.PropertyAnimActivity"></activity>
+        <activity android:name=".androidvieweventandanima.FrameAnimaActivity" />
+        <activity android:name=".androidvieweventandanima.TranslateAnimActivity" />
+        <activity android:name=".androidvieweventandanima.ScrollActivity" />
+        <activity android:name=".androidvieweventandanima.ViewEventActivity" />
+        <activity android:name=".androidlayout.CoordinatorLayoutActivity" />
         <activity android:name=".androidlayout.LayoutActivity" />
         <activity android:name=".androidimage.ImageActivity" />
         <activity android:name=".androidlistview.ListViewActivity" />

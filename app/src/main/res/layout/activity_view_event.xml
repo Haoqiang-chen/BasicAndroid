@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidvieweventandanima.ViewEventActivity">
+    <Button
+        android:id="@+id/scrollViewBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="View滑动"/>
+
+    <View
+        android:id="@+id/boder1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bule"
+        app:layout_constraintTop_toBottomOf="@id/scrollViewBtn"/>
+
+    <Button
+        android:id="@+id/translateAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boder1"
+        android:text="平移动画"/>
+
+
+    <Button
+        android:id="@+id/scaleAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/translateAnimBtn"
+        android:text="缩放动画"/>
+
+    <Button
+        android:id="@+id/alphaAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scaleAnimBtn"
+        android:text="透明度动画"/>
+
+    <Button
+        android:id="@+id/rotateAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alphaAnimBtn"
+        android:text="旋转动画"/>
+
+    <View
+        android:id="@+id/boder2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bule"
+        app:layout_constraintTop_toBottomOf="@id/rotateAnimBtn"/>
+
+    <Button
+        android:id="@+id/frameAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alphaAnimBtn"
+        android:text="帧动画"/>
+
+    <View
+        android:id="@+id/boder3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bule"
+        app:layout_constraintTop_toBottomOf="@id/frameAnimBtn"/>
+
+    <Button
+        android:id="@+id/propertyAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boder3"
+        android:text="属性动画"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

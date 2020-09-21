@@ -1,6 +1,7 @@
 package cc.aiknow.basicandroid
 
 import android.app.Application
+import android.content.Context
 import com.facebook.stetho.Stetho
 
 /**
@@ -9,8 +10,20 @@ import com.facebook.stetho.Stetho
  * @version 1.0
  */
 class MyApplication: Application() {
+
+    companion object {
+        @JvmField
+        var context: Context? = null
+
+        @JvmStatic
+        fun getContext(): Context? {
+            return context;
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
         Stetho.initializeWithDefaults(this)
+        context = applicationContext;
     }
 }

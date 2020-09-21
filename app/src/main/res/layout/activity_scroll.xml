@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".androidlayout.LayoutActivity">
+    tools:context=".androidvieweventandanima.ScrollActivity">
 
-    <Button
-        android:id="@+id/btn_coordinatorlayout"
+    <cc.aiknow.basicandroid.androidvieweventandanima.EventViewOne
+        android:id="@+id/event_view_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="CoordinatorLayout(协调者布局)"/>
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

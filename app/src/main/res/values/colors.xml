@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ff80ab</color>
+    <color name="colorPrimary_alpha0">#00ff80ab</color>
+    <color name="colorPrimary_alpha100">#FFff80ab</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="retrofitTextColor">#A020F0</color>
+    <color name="bule">#0000FF</color>
 </resources>

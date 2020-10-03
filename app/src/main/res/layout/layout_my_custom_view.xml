@@ -14,7 +14,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:scaleType="centerCrop"
-        android:background="#FF83FA"/>
+        android:foreground="#FF83FA"
+        android:background="@drawable/shadow_shape"/>
 
     <TextView
         android:id="@+id/my_custom_view_title"
@@ -42,6 +43,7 @@
         app:layout_constraintBottom_toBottomOf="@id/my_custom_view_image"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/textview_shape"
         android:text="这是自定义View的描述"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

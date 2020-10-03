@@ -2,6 +2,7 @@ package cc.aiknow.basicandroid.androidactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ public class BActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
+        Toast.makeText(this, "B ---create", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "create");
         initView();
         initListener();
     }
@@ -42,7 +45,7 @@ public class BActivity extends AppCompatActivity {
     }
 
 
-    // 此方法将在Activity重新恢复到resume状态前被调用
+    // 此方法将在Activity重新恢复到resume状态前被调用即onActivityResult方法会在onReStart之前调用
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -51,5 +54,47 @@ public class BActivity extends AppCompatActivity {
             activityBResultText.setText(result);
             Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "B ---start", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "start");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "B ---resume", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "resume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "B ---pause", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "pause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(this, "B ---stop", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "stop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "B ---destroy", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "destroy");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Toast.makeText(this, "B ---Restart", Toast.LENGTH_SHORT).show();
+        Log.i("B ---", "Restart");
     }
 }

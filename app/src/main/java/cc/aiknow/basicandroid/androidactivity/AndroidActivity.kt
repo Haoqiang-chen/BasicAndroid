@@ -28,7 +28,7 @@ class AndroidActivity : AppCompatActivity() {
             // 显式启动Activity A
             val i = Intent()
             // TODO 类引用的Kotlin学习
-            // 用于测试当启动模式为
+            // 用于测试当启动模式为栈顶单例(singleTop)或者栈内单列(singleTask)或CLEAR_TOP的情况下启动响应的Activity时，生命周期变为先pause然后调用onNewIntent然后调用resume
             i.putExtra("source", "Father Intent")
             i.setClass(this, AActivity::class.java)
             startActivity(i)

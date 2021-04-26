@@ -1,27 +1,82 @@
+/**
+ * 模块级别的构建文件：用于未所在模块定义构建配置，可以实现自定义的打包选项或者替换main/应用清单 或者 顶层构建配置
+ */
+
+/**
+ * Android Studio中的模块（Module）有两种属性：application（可独立运行的Android程序，即我们的App）  和  library（不可独立运行，是Android程序的依赖文件）
+ */
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+/**
+ * 定义用于Android的build配置设置
+ */
 android {
-    compileSdkVersion 28
+    compileSdkVersion 28  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
+
+    /**
+     * 默认设置：包括所有的默认设置和进入构建变种的入口
+     */
     defaultConfig {
-        applicationId "cc.aiknow.basicandroid"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId "cc.aiknow.basicandroid"  // 独一无二的应用包名，项目中的源码可以引用清单文件中定义的包名
+        minSdkVersion rootProject.ext.minSdkVersion // 定义最小的Android API版本
+        targetSdkVersion rootProject.ext.targetSdkVersion // 定义用于测试App时的Android API版本
+        versionCode 1 // App的版本号
+        versionName "1.0" // 版本名称
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    /**
+     * 构建类型设置：可以自定义多种构建类型，比如debug 、 release等
+     * 默认是有两种配置类型：debug 和 release
+     * debug配置类型：默认默认不再配置(build)文件中显示，它包含在debug工具中，并且用debug key来进行签名
+     * release配置类型：默认使用Proguard进行设置，并且默认没有签名
+     */
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false  // 是否使用proguard来进行缩小代码体积
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'  // Proguard rules file
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+
+    /**
+     * 切开配置：可以根据设置在打包时进行拆包，从而打出只包含部分文件的包
+     *
+     */
+    splits {
+
+        // 根据屏幕密度的不同打成不同的包，每个包中只包含自己屏幕密度文件的包和自己屏幕密度下所需的其他文件 Settings to build multiple APKs based on screen density.
+        density {
+
+            // Enable or disable building multiple APKs.
+            enable false
+
+            // Exclude these densities when building multiple APKs.
+            exclude "ldpi", "tvdpi", "xxxhdpi", "400dpi", "560dpi"
         }
     }
 }
 
+/**
+ * 定义了该模块所需的依赖文件
+ */
 dependencies {
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
     def lifecycle_version = "2.0.0"
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -32,7 +87,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlinVersion}"
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'

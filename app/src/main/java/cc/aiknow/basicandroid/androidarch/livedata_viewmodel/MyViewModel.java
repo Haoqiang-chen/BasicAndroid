@@ -3,6 +3,8 @@ package cc.aiknow.basicandroid.androidarch.livedata_viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import cc.aiknow.basicandroid.MyApplication;
+
 /**
  * 学习LiveData与ViewModel的相关知识
  * ViewModel:用于以有生命周期意识的方式存储、管理UI的相关数据

@@ -39,6 +39,10 @@ import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
+import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
+import cc.aiknow.basicandroid.textview.TextViewActivity;
+import cc.aiknow.basicandroid.util.Utils;
+import cc.aiknow.basicandroid.webview.WebViewActivity;
 
 /**
  * @Description: 主界面 
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e("chenhaoqiang", Utils.getProcessName(this, android.os.Process.myPid()));
         setContentView(R.layout.activity_main);
         initDataBase();
         findView();
@@ -103,6 +108,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("Image");
             add("Layout");
             add("viewEvent");
+            add("textView");
+            add("multipleProcess");
+            add("WebView");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -120,6 +128,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("Image", ImageActivity.class);
             put("Layout", LayoutActivity.class);
             put("viewEvent", ViewEventActivity.class);
+            put("textView", TextViewActivity.class);
+            put("multipleProcess", MultipleProcessActivity.class);
+            put("WebView", WebViewActivity.class);
         }};
     }
 

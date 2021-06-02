@@ -46,7 +46,7 @@ import cc.aiknow.basicandroid.util.Utils;
 import cc.aiknow.basicandroid.webview.WebViewActivity;
 
 /**
- * @Description: 主界面 
+ * @Description: 主界面
  * @Author: chen
  * @Date: 2019/6/2
  */

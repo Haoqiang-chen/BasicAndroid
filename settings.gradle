@@ -1,1 +1,4 @@
+include ':apt-library'
+include ':apt-processor'
+include ':apt-annotation'
 include ':app'

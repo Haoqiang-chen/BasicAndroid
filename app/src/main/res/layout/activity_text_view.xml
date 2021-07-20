@@ -22,4 +22,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text" />
 
+    <cc.aiknow.basicandroid.textview.LabeledTextView
+        android:id="@+id/labeled_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/custom_text"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

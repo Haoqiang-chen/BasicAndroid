@@ -33,6 +33,7 @@ import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelper;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerActivity;
+import cc.aiknow.basicandroid.androidrecyclerview.RecyclerListAdapterActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.RecyclerViewItemClickListener;
 import cc.aiknow.basicandroid.androidretrofit.RetrofitActivity;
 import cc.aiknow.basicandroid.androidsaveprocess.JobSchedulerService;
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("multipleProcess");
             add("WebView");
             add("Apt");
+            add("RecyclerListAdapterActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -134,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("multipleProcess", MultipleProcessActivity.class);
             put("WebView", WebViewActivity.class);
             put("Apt", AptActivity.class);
+            put("RecyclerListAdapterActivity", RecyclerListAdapterActivity.class);
         }};
     }
 

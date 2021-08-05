@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".androidapt.AptActivity"></activity>
+        <activity android:name=".androidrecyclerview.RecyclerListAdapterActivity"></activity>
+        <activity android:name=".androidapt.AptActivity" />
         <activity android:name=".webview.WebViewActivity" />
         <activity
             android:name=".multipleprocess.MultipleProcessActivity"

@@ -6,9 +6,11 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.os.*
 import android.os.Build.VERSION_CODES.M
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
+import cc.aiknow.basicandroid.androidaidl.IRemoteService
 import kotlinx.android.synthetic.main.activity_service.*
 import java.lang.ref.WeakReference
 
@@ -164,6 +166,25 @@ class ServiceActivity : AppCompatActivity() {
                 message.replyTo = clientMessenger
                 serviceMessenger?.send(message)
             }
+        }
+
+        /**
+         * 手动调起服务端的服务
+         */
+        bindServiceRemoteButton.setOnClickListener {
+            val intent = Intent().apply {
+                setClass(this@ServiceActivity, MyRemoteService::class.java)
+            }
+            val connection = object: ServiceConnection {
+                override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                    Log.e("chenhaoqiang", "连接成功")
+                }
+
+                override fun onServiceDisconnected(name: ComponentName?) {
+                }
+
+            }
+            bindService(intent, connection, BIND_AUTO_CREATE)
         }
     }
 

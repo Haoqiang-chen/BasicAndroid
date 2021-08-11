@@ -15,6 +15,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="BasicAndroid.app" target="11" />
       <module name="BasicAndroid.apt-library" target="11" />
+      <module name="BasicAndroid.client" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

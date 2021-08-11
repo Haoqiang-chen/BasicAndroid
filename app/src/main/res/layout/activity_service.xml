@@ -78,4 +78,15 @@
         android:text="客户端采用Messsager与服务端进行交互"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/bindServiceRemoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bindServiceMessengerClientButton"
+        android:layout_marginTop="20dp"
+        android:text="测试服务端Server是否可用"
+        android:textAllCaps="false"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

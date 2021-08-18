@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cc.aiknow.basicandroid.R;
+import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
 
 public class LayoutActivity extends AppCompatActivity {
 
@@ -14,6 +15,7 @@ public class LayoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout);
+        ScreenSizeAdapter.changeTargetDeviceDensity(this, getApplication(), 360);
         initView();
     }
 

@@ -43,6 +43,7 @@ import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
+import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
 import cc.aiknow.basicandroid.util.Utils;
 import cc.aiknow.basicandroid.webview.WebViewActivity;
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e("chenhaoqiang", Utils.getProcessName(this, android.os.Process.myPid()));
+        ScreenSizeAdapter.changeTargetDeviceDensity(this, getApplication(), 360);
         setContentView(R.layout.activity_main);
         initDataBase();
         findView();

@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import cc.aiknow.basicandroid.R;
 
 /**
- * 学习补间动画：平移动画
+ * 学习补间动画（只需要置顶动画开始帧、结束帧，中间部分自动补齐的动画）：平移动画
+ * 注意：补间动画不会影响view的属性值
  */
 public class TranslateAnimActivity extends AppCompatActivity {
 

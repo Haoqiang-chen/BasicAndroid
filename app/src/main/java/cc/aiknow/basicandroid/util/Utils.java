@@ -3,7 +3,14 @@ package cc.aiknow.basicandroid.util;
 import android.app.ActivityManager;
 import android.content.Context;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.util.List;
+
+import static android.text.TextUtils.isEmpty;
 
 /**
  * @Description: 工具类
@@ -26,5 +33,25 @@ public class Utils {
             }
         }
         return null;
+    }
+
+    public static boolean isJSONObject(String str) {
+        if (isEmpty(str)) {
+            return false;
+        }
+        boolean result = false;
+        Object json = null;
+        try {
+            json = new JSONTokener(str).nextValue();
+            if (json instanceof JSONObject) {
+                result = true;
+            } else if (json instanceof JSONArray) {
+                result = false;
+            }
+        } catch (JSONException e) {
+            result = false;
+            e.printStackTrace();
+        }
+        return result;
     }
 }

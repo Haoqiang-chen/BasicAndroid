@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
 
         GsonTest.serialization();
         GsonTest.deserialization();
+        String str = "";
+        Utils.isJSONObject(str);
 
         // File实现了序列化接口可被intent传递
 //        File file = new File("");

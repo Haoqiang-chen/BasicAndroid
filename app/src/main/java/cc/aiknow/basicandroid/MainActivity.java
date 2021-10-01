@@ -41,6 +41,7 @@ import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
+import cc.aiknow.basicandroid.customview.CustomViewActivity;
 import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
 import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
@@ -119,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("WebView");
             add("Apt");
             add("RecyclerListAdapterActivity");
+            add("CustomViewActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -141,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("WebView", WebViewActivity.class);
             put("Apt", AptActivity.class);
             put("RecyclerListAdapterActivity", RecyclerListAdapterActivity.class);
+            put("CustomViewActivity", CustomViewActivity.class);
         }};
     }
 

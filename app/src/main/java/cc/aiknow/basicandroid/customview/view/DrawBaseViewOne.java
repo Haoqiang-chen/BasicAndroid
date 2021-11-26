@@ -13,7 +13,7 @@ import android.view.View;
 import cc.aiknow.basicandroid.R;
 
 /**
- * @Description: 绘制基础
+ * @Description: 绘制基础---Canvas中相关方法
  * @Author chenhaoqiang
  * @Since 2021/9/30
  * @Version 1.0

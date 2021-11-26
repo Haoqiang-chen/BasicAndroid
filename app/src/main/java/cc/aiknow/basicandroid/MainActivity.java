@@ -5,6 +5,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -38,6 +39,7 @@ import cc.aiknow.basicandroid.androidrecyclerview.RecyclerViewItemClickListener;
 import cc.aiknow.basicandroid.androidretrofit.RetrofitActivity;
 import cc.aiknow.basicandroid.androidsaveprocess.JobSchedulerService;
 import cc.aiknow.basicandroid.androidservice.ServiceActivity;
+import cc.aiknow.basicandroid.androidso.NativeLog;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
 //        bundle.putSerializable("s", file);
 
         initJobScheduler();
+        // 调用变体中的代码
+        new DemoTest();
     }
 
     private void initDataBase() {
@@ -177,5 +181,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     protected void onDestroy() {
         super.onDestroy();
         jobScheduler.cancel(1);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("chenhoqiang", "hhh");
+        NativeLog.log("chenhaoqiang", "这是一个日志");
     }
 }

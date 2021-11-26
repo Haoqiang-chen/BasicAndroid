@@ -13,12 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customview.CustomViewActivity"></activity>
+        <activity android:name=".customview.CustomViewActivity" />
 
         <service
             android:name=".androidservice.MyRemoteService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity android:name=".androidrecyclerview.RecyclerListAdapterActivity" />
         <activity android:name=".androidapt.AptActivity" />

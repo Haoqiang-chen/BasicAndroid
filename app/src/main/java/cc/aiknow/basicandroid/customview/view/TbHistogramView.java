@@ -21,12 +21,12 @@ import cc.aiknow.basicandroid.R;
 
 
 /**
- * @Description: 柱状图控件，支持
+ * @Description: 柱状图控件，支持自定义柱状图坐标轴线宽、颜色、
  * @Author chenhaoqiang
  * @Since 2021/10/20
  * @Version 1.0
  */
-public class HistogramView extends View {
+public class TbHistogramView extends View {
 
     /**
      * 坐标轴线宽
@@ -187,15 +187,15 @@ public class HistogramView extends View {
     private int mTextColor;
 
 
-    public HistogramView(Context context) {
+    public TbHistogramView(Context context) {
         this(context, null);
     }
 
-    public HistogramView(Context context, AttributeSet attrs) {
+    public TbHistogramView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public HistogramView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TbHistogramView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // 初始化
         iniView(context, attrs);
@@ -209,11 +209,11 @@ public class HistogramView extends View {
      * @param attrs   属性集
      */
     private void iniView(Context context, AttributeSet attrs) {
-        TypedArray typeArray = context.obtainStyledAttributes(attrs, R.styleable.HistogramView);
-        mAxisColor = typeArray.getColor(R.styleable.HistogramView_axisColor, Color.BLACK);
-        mAxisLineWidth = typeArray.getInt(R.styleable.HistogramView_axisLineWidth, AXIS_LINE_WIDTH);
-        mTextSize = typeArray.getInt(R.styleable.HistogramView_textSize, TEXT_DEFAULT_SIZE);
-        mTextColor = typeArray.getColor(R.styleable.HistogramView_textColor, Color.BLACK);
+        TypedArray typeArray = context.obtainStyledAttributes(attrs, R.styleable.TbHistogramView);
+        mAxisColor = typeArray.getColor(R.styleable.TbHistogramView_axisColor, Color.BLACK);
+        mAxisLineWidth = typeArray.getInt(R.styleable.TbHistogramView_axisLineWidth, AXIS_LINE_WIDTH);
+        mTextSize = typeArray.getInt(R.styleable.TbHistogramView_textSize, TEXT_DEFAULT_SIZE);
+        mTextColor = typeArray.getColor(R.styleable.TbHistogramView_textColor, Color.BLACK);
         typeArray.recycle();
     }
 

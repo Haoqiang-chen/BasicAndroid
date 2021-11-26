@@ -18,22 +18,22 @@ import cc.aiknow.basicandroid.R;
  * @Since 2021/9/30
  * @Version 1.0
  */
-public class DrawBaseView extends View {
+public class DrawBaseViewOne extends View {
     /**
      * Paint意为颜料，主要设置颜色、风格(画笔粗细、实心粗心等)
      */
     private Paint mPaint;
     private int mWidth, mHeight;
 
-    public DrawBaseView(Context context) {
+    public DrawBaseViewOne(Context context) {
         this(context, null);
     }
 
-    public DrawBaseView(Context context, AttributeSet attrs) {
+    public DrawBaseViewOne(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public DrawBaseView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DrawBaseViewOne(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
     }
@@ -92,6 +92,7 @@ public class DrawBaseView extends View {
     }
 
     private void drawText(Canvas canvas) {
+        // 绘制文字时Paint Style样式如果是描边，则绘制出的文字也是描边
         mPaint.setTextSize(30);
         canvas.drawText("draw 画 文字 text", 0,50, mPaint);
     }
@@ -256,7 +257,15 @@ public class DrawBaseView extends View {
          */
         mPaint.setStyle(Paint.Style.STROKE); // 设置绘制模式: 填充 描边 填充并且描边
         float strokeWidth = 2.0f;
-        mPaint.setStrokeWidth(strokeWidth); // 设置描边宽度,单位为像素，默认描边为1像素
+        /**
+         * 线条宽度 0 和 1 的区别
+         * 默认情况下，线条宽度为 0，但你会发现，这个时候它依然能够画出线，线条的宽度为 1 像素。那么它和线条宽度为 1 有什么区别呢？
+         * 其实这个和后面要讲的一个「几何变换」有关：你可以为 Canvas 设置 Matrix 来实现几何变换（如放大、缩小、平移、旋转），在几
+         * 何变换之后 Canvas 绘制的内容就会发生相应变化，包括线条也会加粗，例如 2 像素宽度的线条在 Canvas 放大 2 倍后会被以 4 像素
+         * 宽度来绘制。而当线条宽度被设置为 0 时，它的宽度就被固定为 1 像素，就算 Canvas 通过几何变换被放大，它也依然会被以 1 像素
+         * 宽度来绘制。Google 在文档中把线条宽度为 0 时称作「hairline mode（发际线模式）」
+         */
+        mPaint.setStrokeWidth(strokeWidth); // 设置描边宽度,单位为像素，默认值是0， 但是会默认固定宽度为1像素
         mPaint.setColor(Color.BLACK); // 设置颜色
         mPaint.setAntiAlias(true); // 开启抗锯齿，可以使图形或者文字的边缘更加平滑，开启抗锯齿的另一种方式是通过初始化画笔时直接设置FLAG  new Paint(Paint.ANTI_ALIAS_FLAG);
         return strokeWidth;

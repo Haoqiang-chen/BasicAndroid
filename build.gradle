@@ -24,8 +24,8 @@ buildscript {
 
     // 依赖代码块：用于表示Gradle用来构建项目时需要的依赖项
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
         // Gradle插件版本，是Google定义的，即 Android gradle plugin 的版本
+        classpath 'com.android.tools.build:gradle:4.2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${rootProject.ext.kotlinVersion}"
@@ -34,9 +34,10 @@ buildscript {
 }
 
 // 配置所有模块需要的依赖和仓库，默认只有JCenter and Google's Maven仓库
-// 建议是每个模块的依赖都要在自己模块内的构建脚本中天级
+// 建议是每个模块的依赖都要在自己模块内的构建脚本中添加
 allprojects {
     repositories {
+        // 各个代码库的列出顺序决定了 Gradle 在这些代码库中搜索各个项目依赖项的顺序
         google()
         jcenter()
     }

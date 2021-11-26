@@ -5,12 +5,12 @@
 /**
  * Android Studio中的模块（Module）有两种属性：application（可独立运行的Android程序，即我们的App）  和  library（不可独立运行，是Android程序的依赖文件）
  */
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'  // 将APG中的com.android.application引入到当前构建文件中，使得可以在android代码块中定义android项目特有的构建设置
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 /**
- * 定义用于Android的build配置设置
+ * 定义用于Android项目的build配置设置
  */
 android {
     compileSdkVersion 28  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
@@ -19,6 +19,9 @@ android {
      * 默认设置：包括所有的默认设置和进入构建变种的入口
      */
     defaultConfig {
+        ndk {
+            abiFilters "arm64-v8a"
+        }
         applicationId "cc.aiknow.basicandroid"  // 独一无二的应用包名，项目中的源码可以引用清单文件中定义的包名
         minSdkVersion rootProject.ext.minSdkVersion // 定义最小的Android API版本
         targetSdkVersion rootProject.ext.targetSdkVersion // 定义用于测试App时的Android API版本
@@ -37,6 +40,60 @@ android {
         release {
             minifyEnabled false  // 是否使用proguard来进行缩小代码体积
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'  // Proguard rules file
+        }
+
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+        }
+
+        selfBuildType {
+            initWith debug  // initWith 表示这个构建类型会复制其他的构建类型，然后只需要在设置想要更改的设置即可
+            applicationIdSuffix ".selfBuildType"
+        }
+    }
+
+    // 设置变种纬度，每个构建变种必须指定其变种纬度，如果该模块只指定了一个变种纬度，则Gradle插件会自动将所有变种指定为该纬度
+    // 参数是一个列表，列表顺序表示了构建变体在合并资源和配置时的优先级, 可以通过Build Variants窗口查看构建变体，变体名称可以体现出优先级
+    flavorDimensions "api", "version"
+
+    // 产品变种支持与defaultConfig中相同的属性，因为defaultConfig实际上属于productFlavors类
+    // id后缀追加的优先顺序  default + productFlavor + buildType
+    productFlavors {
+        demo {
+            dimension "version" // 指定变种纬度
+            applicationIdSuffix ".demo"
+        }
+
+        full {
+            dimension "version"
+            applicationIdSuffix ".full"
+        }
+
+        minApi23 {
+            dimension "api"
+            applicationIdSuffix ".minApi23"
+        }
+
+        minApi26 {
+            dimension "api"
+            applicationIdSuffix ".minApi26"
+        }
+
+    }
+
+    // 变体过滤器
+    variantFilter { variant ->
+        def names = variant.flavors.name
+        if (names.contains("minApi23") && names.contains("full")) {
+            // Gradle 将忽略满足条件的变体
+            setIgnore(true)
+        }
+
+        def buildTypeNames = variant.buildType.name
+        if (buildTypeNames.contains("selfBuildType")) {
+            // Gradle 将忽略满足条件的变体
+            setIgnore(true)
         }
     }
 
@@ -68,18 +125,30 @@ android {
             exclude "ldpi", "tvdpi", "xxxhdpi", "400dpi", "560dpi"
         }
     }
+
+    // 如果so文件没有被放在默认目录下
+    // 比如在Android Studio中，so文件放在了libs目录下。则需要在build.gradle中添加设置，来指定实际存放目录。
+    sourceSets {
+        main.jni.srcDirs = []
+        main.jniLibs.srcDirs = ['libs']
+    }
 }
 
 /**
  * 定义了该模块所需的依赖文件
+ * 有三种依赖类型
  */
 dependencies {
+    // 第一种依赖类型： 依赖本地library模块
+    implementation project(':apt-library')
+    annotationProcessor project(':apt-processor')
+    // 第二种依赖类型：依赖本地二进制文件, libs文件夹在该build文件所在Module下，因为Gradle会读取build文件的相对路径 TODO 后续将注解处理器改成aar形式(将注解使用jar包的形式引入项目)
+//    implementation files('src/libs/apt-annotation.jar')
+    implementation fileTree(dir: 'src/libs', include: ['*.jar'])
+    // 第三种依赖类型：依赖远程二进制库 组名：库名：版本号
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
-    implementation project(path: ':apt-annotation')
-    implementation project(path: ':apt-library')
-    annotationProcessor project(path: ':apt-processor')
     def lifecycle_version = "2.0.0"
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -90,7 +159,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlinVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlinVersion}"
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'

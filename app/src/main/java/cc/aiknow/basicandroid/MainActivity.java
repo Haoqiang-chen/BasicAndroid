@@ -43,6 +43,7 @@ import cc.aiknow.basicandroid.androidso.NativeLog;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
+import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
 import cc.aiknow.basicandroid.customview.CustomViewActivity;
 import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("Apt");
             add("RecyclerListAdapterActivity");
             add("CustomViewActivity");
+            add("ViewPagerActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -148,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("Apt", AptActivity.class);
             put("RecyclerListAdapterActivity", RecyclerListAdapterActivity.class);
             put("CustomViewActivity", CustomViewActivity.class);
+            put("ViewPagerActivity", ViewPagerActivity.class);
         }};
     }
 

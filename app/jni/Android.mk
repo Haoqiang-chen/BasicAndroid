@@ -23,5 +23,5 @@ LOCAL_SRC_FILES := native_log.cpp
 include $(BUILD_SHARED_LIBRARY)
 
 # 使用javah命令生成头文件
-# 解释：javah -classpath 指定class路径(出现找不到class类路径时手动指定) -o 输出文件的名称  类全称
+# 解释：javah -classpath 指定class路径(出现找不到class类路径时手动指定) -o 输出文件的名称（-o会将所有的JNI接口都生成在同一个文件中）  类全称
 # javah -classpath /Users/chenhaoqiang/work/learn/BasicAndroid/app/build/intermediates/javac/minApi23DemoDebug/classes -o native_log.h cc.aiknow.basicandroid.androidso.NativeLog

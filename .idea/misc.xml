@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_custom_view.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.189209726443769" />
+        <entry key="app/src/main/res/layout/activity_view_event.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_view_pager.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/fragment_view_pager_item.xml" value="0.3890625" />
       </map>
     </option>
   </component>

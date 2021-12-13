@@ -10,6 +10,8 @@ import cc.aiknow.basicandroid.R;
 
 public class ViewEventActivity extends AppCompatActivity {
 
+    private AnimatorTextView animatorTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,17 @@ public class ViewEventActivity extends AppCompatActivity {
                 startActivity(PropertyAnimActivity.class);
             }
         });
+
+        animatorTextView = findViewById(R.id.animatorTextView);
+        animatorTextView.start = animatorTextView.getLayoutParams().width;
+        animatorTextView.end = animatorTextView.start * 6;
+        animatorTextView.initAnimator();
+        animatorTextView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                animatorTextView.objectAnimator.start();
+            }
+        }, 5000);
     }
 
     private void startActivity(Class<?> activityClass) {

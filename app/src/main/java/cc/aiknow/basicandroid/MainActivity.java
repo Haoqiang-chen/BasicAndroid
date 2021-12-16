@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        NativeLog.log("start order", "MainActivity onCreate start");
         super.onCreate(savedInstanceState);
         Log.e("chenhaoqiang", Utils.getProcessName(this, android.os.Process.myPid()));
         ScreenSizeAdapter.changeTargetDeviceDensity(this, getApplication(), 360);
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
         initJobScheduler();
         // 调用变体中的代码
         new DemoTest();
+        NativeLog.log("start order", "MainActivity onCreate end");
     }
 
     private void initDataBase() {
@@ -189,7 +191,5 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("chenhoqiang", "hhh");
-        NativeLog.log("chenhaoqiang", "这是一个日志");
     }
 }

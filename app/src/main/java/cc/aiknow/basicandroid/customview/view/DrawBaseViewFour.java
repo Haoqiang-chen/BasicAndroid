@@ -32,6 +32,8 @@ import cc.aiknow.basicandroid.R;
  *    三维变换：
  *        Camera
  *
+ * 参考文献：
+ * 1. https://juejin.cn/post/7015593442248458270  Matrix理解
  * @Author chenhaoqiang
  * @Since 2021/12/13
  * @Version 1.0

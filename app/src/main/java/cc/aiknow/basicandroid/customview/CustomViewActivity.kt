@@ -24,5 +24,7 @@ class CustomViewActivity : AppCompatActivity() {
         datas.add(TbHistogramView.HistogramData("four", 10f))
         datas.add(TbHistogramView.HistogramData("five", 20f))
 //        histogram_view.setHistogramData(datas)
+
+        progressView.setCurProgress(50f)
     }
 }

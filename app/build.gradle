@@ -132,6 +132,9 @@ android {
         main.jni.srcDirs = []
         main.jniLibs.srcDirs = ['libs']
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 /**

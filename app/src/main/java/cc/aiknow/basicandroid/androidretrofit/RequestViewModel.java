@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 采用LiveData以及ViewModel的方式请求网络数据并显式在UI
+ * 学习资料 https://www.jianshu.com/p/661c0459b375
  * @author chen
  * @version 1.0
  * @since 2019-07-18 20:44

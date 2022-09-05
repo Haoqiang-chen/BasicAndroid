@@ -5,6 +5,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,9 @@ import cc.aiknow.basicandroid.androidactivity.AndroidActivity;
 import cc.aiknow.basicandroid.androidapt.AptActivity;
 import cc.aiknow.basicandroid.androidarch.ArchActivity;
 import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
+import cc.aiknow.basicandroid.androidcontentprovider.ContentProviderActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
+import cc.aiknow.basicandroid.androidimage.BigImageViewActivity;
 import cc.aiknow.basicandroid.androidimage.ImageActivity;
 import cc.aiknow.basicandroid.androidlayout.LayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("RecyclerListAdapterActivity");
             add("CustomViewActivity");
             add("ViewPagerActivity");
+            add("ContentProviderActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -143,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("AndroidArch", ArchActivity.class);
             put("AndroidStore", StoreActivity.class);
             put("ListView", ListViewActivity.class);
-            put("Image", ImageActivity.class);
+            put("Image", BigImageViewActivity.class);
             put("Layout", LayoutActivity.class);
             put("viewEvent", ViewEventActivity.class);
             put("textView", TextViewActivity.class);
@@ -153,6 +157,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("RecyclerListAdapterActivity", RecyclerListAdapterActivity.class);
             put("CustomViewActivity", CustomViewActivity.class);
             put("ViewPagerActivity", ViewPagerActivity.class);
+            put("ContentProviderActivity", ContentProviderActivity.class);
         }};
     }
 

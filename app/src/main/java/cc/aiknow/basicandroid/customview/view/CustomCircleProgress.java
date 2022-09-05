@@ -94,7 +94,7 @@ public class CustomCircleProgress extends View {
     }
 
     private void runAnimation(float curProgress) {
-        ValueAnimator valueAnimator = ValueAnimator.ofFloat(DEFAULT_HEIGHT);
+        ValueAnimator valueAnimator = ValueAnimator.ofFloat(this.curProgress, curProgress);
         valueAnimator.setDuration(5000);
         valueAnimator.setInterpolator(new LinearInterpolator());
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -102,6 +102,7 @@ public class CustomCircleProgress extends View {
             public void onAnimationUpdate(ValueAnimator animation) {
                 float value = (float) animation.getAnimatedValue();
                 CustomCircleProgress.this.curProgress = value;
+                invalidate();
             }
         });
         valueAnimator.start();

@@ -47,6 +47,13 @@ public class ViewEventActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.imgBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ImgMoveActivity.class);
+            }
+        });
+
         animatorTextView = findViewById(R.id.animatorTextView);
         animatorTextView.start = animatorTextView.getLayoutParams().width;
         animatorTextView.end = animatorTextView.start * 6;

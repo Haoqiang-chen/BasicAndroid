@@ -206,7 +206,7 @@ public class MyDrawViewTwo extends View {
      * 注意：
      * 1. ViewGroup的有些子类会不需要绘制自身，所以当重写这类组件的onDraw等绘制方法时，需要调用setWillNotDraw(false) 是的整个绘制流程可以正常执行
      * 2. ViewGroup 在初始化是默认设置不会绘制自身，具体实现在initViewGroup中，
-     *    然后在draw(Canvas canvas, ViewGroup parent, long drawingTime)中会判断是否需要进行绘制然后是调用draw()方法还是dispatchDraw()方法
+     *    然后在draw(Canvas canvas, ViewGroup parent, long drawingTime) (View 中三个参数的draw方法) 中会判断是否需要进行绘制然后是调用draw()方法还是dispatchDraw()方法
      *    所以，当ViewGroup需要绘制自身时应该手动设置setWillNotDraw(false)，保证绘制流程可以完整执行
      * @param canvas
      */

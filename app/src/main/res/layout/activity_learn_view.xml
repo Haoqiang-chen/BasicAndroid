@@ -6,48 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".androidview.LearnViewActivity">
 
-    <TextView
-        android:id="@+id/learn_title"
-        android:layout_width="match_parent"
+<!--    <TextView-->
+<!--        android:id="@+id/learn_title"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:text="学习自定义view的相关知识" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/my_draw_view_loop"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/learn_title"-->
+<!--        android:text="自定义View循环"-->
+<!--        android:textAllCaps="false"/>-->
+
+<!--    <cc.aiknow.basicandroid.androidview.MyCustomView-->
+<!--        android:id="@+id/my_custom_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/my_draw_view_loop"/>-->
+
+<!--    <cc.aiknow.basicandroid.androidview.MyDrawViewTwo-->
+<!--        android:id="@+id/my_draw_view_two"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/my_custom_view"/>-->
+
+<!--    <cc.aiknow.basicandroid.androidview.MyDrawView-->
+<!--        android:id="@+id/my_draw_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/my_draw_view_two"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary_alpha0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="1"
+        app:layout_constraintVertical_bias="0.945" />
+
+<!--    <cc.aiknow.basicandroid.customview.view.EjectionEmojiAnimation-->
+<!--        android:id="@+id/ejectionEmojiAnimation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+    <cc.aiknow.basicandroid.customview.view.ejection.EjectionAnimationView
+        android:id="@+id/ejectionAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="学习自定义view的相关知识" />
-
-    <Button
-        android:id="@+id/my_draw_view_loop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/learn_title"
-        android:text="自定义View循环"
-        android:textAllCaps="false"/>
-
-    <cc.aiknow.basicandroid.androidview.MyCustomView
-        android:id="@+id/my_custom_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_draw_view_loop"/>
-
-    <cc.aiknow.basicandroid.androidview.MyDrawViewTwo
-        android:id="@+id/my_draw_view_two"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_custom_view"/>
-
-    <cc.aiknow.basicandroid.androidview.MyDrawView
-        android:id="@+id/my_draw_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_draw_view_two"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
 
 
 

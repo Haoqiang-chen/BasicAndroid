@@ -32,3 +32,32 @@
         app:layout_constraintTop_toBottomOf="@id/custom_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    tools:context=".textview.TextViewActivity">-->
+
+
+<!--    <View-->
+<!--        android:id="@+id/ss"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignTop="@id/dd"-->
+<!--        android:layout_alignBottom="@id/dd"-->
+<!--        android:background="@color/bule"/>-->
+
+<!--    <View-->
+<!--        android:id="@+id/dd"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:background="@color/colorPrimary"/>-->
+
+
+
+<!--</RelativeLayout>-->

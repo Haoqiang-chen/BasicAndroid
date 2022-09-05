@@ -110,4 +110,13 @@
         android:layout_marginBottom="50dp"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <Button
+        android:id="@+id/imgBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/propertyAnimBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="图片移动"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

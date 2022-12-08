@@ -5,18 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".androidlayout.CoordinatorLayoutActivity">
-
+    <!--参考链接：
+    https://huachao.blog.csdn.net/article/details/51558835
+    https://blog.csdn.net/huachao1001/article/details/51554608-->
+    <!--AppBarLayout就是一个LinearLayout。只有内部设置了layout_scrollFlags属性的子view会实现滚动关联
+         layout_scrollFlags: 控制AppBarLayout子View在滚动中的动作，取值有以下几种
+         scroll：子View会随着列表一起滚动，相当于这个view成为列表的一部分
+         enterAlways：当列表向下滚动时，子View会触发向下的滚动，完全展示后，列表才会开始滚动
+         exitUntilCollapsed：在向上滑动时，子View会先滑倒最小高度，然后列表才会开始滑动，在该例子中子VIew（CollapsingToolbarLayout）的最小高度就是toolbar的高度
+         enterAlwaysCollapsed：一般与enterAlways一起使用，在向下滑动进入时，子view首先会滑动到最小距离，然后列表滑动，列表滑动完成后，子View滑动剩余高度的距离-->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--CollapsingToolbarLayout 可折叠的ToolBar布局
+        contentScrim：属性可以设置当完全折叠时的显示背景色-->
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="@color/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
 
             <ImageView
                 android:id="@+id/top_image"
@@ -28,6 +38,7 @@
                 app:layout_collapseMode="parallax"/>
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -44,16 +55,21 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
+        <!--AppBarLayout内部的控件都可以设置layout_scrollFlags属性-->
         <Toolbar
             android:id="@+id/top_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
+
             android:titleTextColor="@color/colorPrimaryDark"
             android:title="标题栏"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!--在CoordinatorLayout布局中置顶列表子View的behavior，实现与AppBarLayout的滑动关联
+    滑动的列表相当于是CoordinatorLayout的Child，AppBarLayout是dependency
+    参考：onDependentViewChanged https://blog.csdn.net/huachao1001/article/details/51554608-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bottom_recyclerview"
         android:layout_width="match_parent"

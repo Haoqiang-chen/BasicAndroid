@@ -23,6 +23,7 @@ import java.util.Map;
 
 import cc.aiknow.basicandroid.androidJson.GsonTest;
 import cc.aiknow.basicandroid.androidJson.JsonTest;
+import cc.aiknow.basicandroid.androidX2C.X2CActivity;
 import cc.aiknow.basicandroid.androidactivity.AndroidActivity;
 import cc.aiknow.basicandroid.androidapt.AptActivity;
 import cc.aiknow.basicandroid.androidarch.ArchActivity;
@@ -47,6 +48,7 @@ import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
+import cc.aiknow.basicandroid.androidwindow.WindowActivity;
 import cc.aiknow.basicandroid.customview.CustomViewActivity;
 import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
@@ -133,6 +135,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("CustomViewActivity");
             add("ViewPagerActivity");
             add("ContentProviderActivity");
+            add("X2CActivity");
+            add("window");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -158,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("CustomViewActivity", CustomViewActivity.class);
             put("ViewPagerActivity", ViewPagerActivity.class);
             put("ContentProviderActivity", ContentProviderActivity.class);
+            put("X2CActivity", X2CActivity.class);
+            put("window", WindowActivity.class);
         }};
     }
 

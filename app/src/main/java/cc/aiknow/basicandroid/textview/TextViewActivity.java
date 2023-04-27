@@ -40,11 +40,11 @@ public class TextViewActivity extends AppCompatActivity {
          * 2.构造想要的标记(Span)
          * 3.通过setSpan方法将标价(Span)应用到指定范围
          */
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append("0123456789");
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.bule));
-        spannableStringBuilder.setSpan(foregroundColorSpan, 1, 4, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        editText.setText(spannableStringBuilder);
+//        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+//        spannableStringBuilder.append("0123456789");
+//        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.bule));
+//        spannableStringBuilder.setSpan(foregroundColorSpan, 1, 4, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+//        editText.setText(spannableStringBuilder);
 
         /**
          * 测试自定义的TextView

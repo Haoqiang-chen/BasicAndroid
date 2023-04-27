@@ -46,6 +46,7 @@ import cc.aiknow.basicandroid.androidservice.ServiceActivity;
 import cc.aiknow.basicandroid.androidso.NativeLog;
 import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
+import cc.aiknow.basicandroid.androidviewbinding.ViewBindingActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
 import cc.aiknow.basicandroid.androidwindow.WindowActivity;
@@ -137,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("ContentProviderActivity");
             add("X2CActivity");
             add("window");
+            add("ViewBindingActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -164,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("ContentProviderActivity", ContentProviderActivity.class);
             put("X2CActivity", X2CActivity.class);
             put("window", WindowActivity.class);
+            put("ViewBindingActivity", ViewBindingActivity.class);
         }};
     }
 

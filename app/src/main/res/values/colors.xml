@@ -7,4 +7,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="retrofitTextColor">#A020F0</color>
     <color name="bule">#0000FF</color>
+    <color name="alpha_blue">#230000FF</color>
+    <color name="transparent">#00000000</color>
 </resources>

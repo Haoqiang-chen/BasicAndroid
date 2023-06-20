@@ -3,6 +3,7 @@ package cc.aiknow.basicandroid.textview;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -24,6 +25,7 @@ public class TextViewActivity extends AppCompatActivity {
 
     private EditText editText;
     private TextView textView;
+    private TextView testShadow;
     private LabeledTextView labeledTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,10 @@ public class TextViewActivity extends AppCompatActivity {
         linearLayout.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         labeledTextView.addLabelView(linearLayout);
+
+        // 使用文字阴影
+        testShadow = findViewById(R.id.test_shadow);
+        testShadow.setShadowLayer(10, 0, 20, Color.parseColor("#66000000"));
     }
 
     public static String stringToUnicode(String str) {

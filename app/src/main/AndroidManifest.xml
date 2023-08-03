@@ -14,6 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".viewevent.ViewClickEventActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".binder.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":RemoteService"></service>
+
+        <activity
+            android:name=".binder.BinderActivity"
+            android:exported="false" />
+        <activity
             android:name=".androidvieweventandanima.ScaleTweenActivity"
             android:exported="false" />
         <activity

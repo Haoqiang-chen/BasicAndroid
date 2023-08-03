@@ -50,11 +50,13 @@ import cc.aiknow.basicandroid.androidviewbinding.ViewBindingActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
 import cc.aiknow.basicandroid.androidwindow.WindowActivity;
+import cc.aiknow.basicandroid.binder.BinderActivity;
 import cc.aiknow.basicandroid.customview.CustomViewActivity;
 import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
 import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
 import cc.aiknow.basicandroid.util.Utils;
+import cc.aiknow.basicandroid.viewevent.ViewClickEventActivity;
 import cc.aiknow.basicandroid.webview.WebViewActivity;
 
 /**
@@ -139,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("X2CActivity");
             add("window");
             add("ViewBindingActivity");
+            add("BinderActivity");
+            add("ViewClickEventActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -167,6 +171,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("X2CActivity", X2CActivity.class);
             put("window", WindowActivity.class);
             put("ViewBindingActivity", ViewBindingActivity.class);
+            put("BinderActivity", BinderActivity.class);
+            put("ViewClickEventActivity", ViewClickEventActivity.class);
         }};
     }
 

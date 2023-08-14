@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".androidnested.NestedScrollActivity">
+
+    <cc.aiknow.basicandroid.androidnested.SimpleNestedScrollView
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@color/alpha_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据2" />
+
+            <cc.aiknow.basicandroid.androidnested.SimpleNestedScrollView
+                android:id="@+id/child"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/colorPrimary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:text="Child数据1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:text="Child数据2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:text="Child数据3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:text="Child数据4" />
+                </LinearLayout>
+            </cc.aiknow.basicandroid.androidnested.SimpleNestedScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Parent数据6" />
+        </LinearLayout>
+
+    </cc.aiknow.basicandroid.androidnested.SimpleNestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

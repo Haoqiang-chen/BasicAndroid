@@ -34,6 +34,8 @@ import cc.aiknow.basicandroid.androidimage.BigImageViewActivity;
 import cc.aiknow.basicandroid.androidimage.ImageActivity;
 import cc.aiknow.basicandroid.androidlayout.LayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
+import cc.aiknow.basicandroid.androidnested.NestedActivity;
+import cc.aiknow.basicandroid.androidnested.NestedScrollActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelper;
@@ -143,6 +145,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("ViewBindingActivity");
             add("BinderActivity");
             add("ViewClickEventActivity");
+            add("NestedScrollActivity");
+            add("NestedActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -173,6 +177,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("ViewBindingActivity", ViewBindingActivity.class);
             put("BinderActivity", BinderActivity.class);
             put("ViewClickEventActivity", ViewClickEventActivity.class);
+            put("NestedScrollActivity", NestedScrollActivity.class);
+            put("NestedActivity", NestedActivity.class);
         }};
     }
 

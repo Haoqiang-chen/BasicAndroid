@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.customview.view;
+package cc.aiknow.basicandroid.androidcustomview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

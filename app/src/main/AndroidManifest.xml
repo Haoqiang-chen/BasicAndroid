@@ -24,13 +24,13 @@
             android:exported="false" />
 
         <service
-            android:name=".binder.RemoteService"
+            android:name=".androidbinder.RemoteService"
             android:enabled="true"
             android:exported="true"
             android:process=":RemoteService" />
 
         <activity
-            android:name=".binder.BinderActivity"
+            android:name=".androidbinder.BinderActivity"
             android:exported="false" />
         <activity
             android:name=".androidvieweventandanima.ScaleTweenActivity"
@@ -50,7 +50,7 @@
         <activity
             android:name=".androidviewpager.ViewPagerActivity"
             android:exported="false" />
-        <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".androidcustomview.CustomViewActivity" />
 
         <service
             android:name=".androidservice.MyRemoteService"
@@ -59,9 +59,9 @@
 
         <activity android:name=".androidrecyclerview.RecyclerListAdapterActivity" />
         <activity android:name=".androidapt.AptActivity" />
-        <activity android:name=".webview.WebViewActivity" />
+        <activity android:name=".androidwebview.WebViewActivity" />
         <activity
-            android:name=".multipleprocess.MultipleProcessActivity"
+            android:name=".androidmultipleprocess.MultipleProcessActivity"
             android:process=":remote" />
         <activity android:name=".textview.TextViewActivity" />
         <activity android:name=".androidhorizontalscrollview.HorizontalScrollViewActivity" />

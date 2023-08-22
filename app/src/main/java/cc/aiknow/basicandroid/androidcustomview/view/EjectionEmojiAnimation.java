@@ -1,10 +1,9 @@
-package cc.aiknow.basicandroid.customview.view;
+package cc.aiknow.basicandroid.androidcustomview.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.CountDownTimer;
 import android.os.Handler;

@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.customview.view.ejection;
+package cc.aiknow.basicandroid.androidcustomview.view.ejection;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import cc.aiknow.basicandroid.R;

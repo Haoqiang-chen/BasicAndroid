@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.webview
+package cc.aiknow.basicandroid.androidwebview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,9 +1,8 @@
-package cc.aiknow.basicandroid.customview.view.ejection;
+package cc.aiknow.basicandroid.androidcustomview.view.ejection;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.CountDownTimer;
-import android.util.Log;
 
 /**
  * @Description: 弹射表情

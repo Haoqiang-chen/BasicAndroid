@@ -71,7 +71,7 @@
 <!--        android:visibility="gone"-->
 <!--        app:layout_constraintTop_toTopOf="parent"/>-->
 
-    <cc.aiknow.basicandroid.customview.view.ejection.EjectionAnimationView
+    <cc.aiknow.basicandroid.androidcustomview.view.ejection.EjectionAnimationView
         android:id="@+id/ejectionAnimationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

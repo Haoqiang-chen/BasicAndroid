@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.multipleprocess
+package cc.aiknow.basicandroid.androidmultipleprocess
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

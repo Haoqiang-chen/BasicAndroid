@@ -5,8 +5,6 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -31,7 +29,6 @@ import cc.aiknow.basicandroid.androidbroadcast.BroadcastActivity;
 import cc.aiknow.basicandroid.androidcontentprovider.ContentProviderActivity;
 import cc.aiknow.basicandroid.androidfragment.MyFragmentActivity;
 import cc.aiknow.basicandroid.androidimage.BigImageViewActivity;
-import cc.aiknow.basicandroid.androidimage.ImageActivity;
 import cc.aiknow.basicandroid.androidlayout.LayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
 import cc.aiknow.basicandroid.androidnested.NestedActivity;
@@ -52,14 +49,14 @@ import cc.aiknow.basicandroid.androidviewbinding.ViewBindingActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
 import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
 import cc.aiknow.basicandroid.androidwindow.WindowActivity;
-import cc.aiknow.basicandroid.binder.BinderActivity;
-import cc.aiknow.basicandroid.customview.CustomViewActivity;
-import cc.aiknow.basicandroid.multipleprocess.MultipleProcessActivity;
+import cc.aiknow.basicandroid.androidbinder.BinderActivity;
+import cc.aiknow.basicandroid.androidcustomview.CustomViewActivity;
+import cc.aiknow.basicandroid.androidmultipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
 import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
 import cc.aiknow.basicandroid.util.Utils;
 import cc.aiknow.basicandroid.viewevent.ViewClickEventActivity;
-import cc.aiknow.basicandroid.webview.WebViewActivity;
+import cc.aiknow.basicandroid.androidwebview.WebViewActivity;
 
 /**
  * @Description: 主界面

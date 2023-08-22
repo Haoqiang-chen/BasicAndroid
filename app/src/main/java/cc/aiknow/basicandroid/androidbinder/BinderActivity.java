@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.binder;
+package cc.aiknow.basicandroid.androidbinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 

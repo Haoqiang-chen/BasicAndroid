@@ -1,7 +1,6 @@
-package cc.aiknow.basicandroid.customview.view;
+package cc.aiknow.basicandroid.androidcustomview.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.BlurMaskFilter;
@@ -10,25 +9,14 @@ import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.ComposeShader;
-import android.graphics.CornerPathEffect;
-import android.graphics.DashPathEffect;
-import android.graphics.DiscretePathEffect;
-import android.graphics.LightingColorFilter;
-import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathDashPathEffect;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.RadialGradient;
-import android.graphics.RectF;
 import android.graphics.Shader;
-import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
-
-import java.util.zip.CheckedOutputStream;
 
 import cc.aiknow.basicandroid.R;
 

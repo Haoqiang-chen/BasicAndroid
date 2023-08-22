@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.customview.view.ejection;
+package cc.aiknow.basicandroid.androidcustomview.view.ejection;
 
 /**
  * @Description: 生命周期状态

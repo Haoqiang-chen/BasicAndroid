@@ -1,4 +1,4 @@
-package cc.aiknow.basicandroid.customview.view;
+package cc.aiknow.basicandroid.androidcustomview.view;
 
 import static android.graphics.Paint.ANTI_ALIAS_FLAG;
 

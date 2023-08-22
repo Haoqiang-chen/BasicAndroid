@@ -1,13 +1,11 @@
-package cc.aiknow.basicandroid.binder
+package cc.aiknow.basicandroid.androidbinder
 
 import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import android.os.IInterface
 import android.os.Parcel
 import android.util.Log
-import java.io.FileDescriptor
 
 /**
  * @Description: 创建一个运行在另一个进程的服务，用于模拟使用Binder进行通信

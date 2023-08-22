@@ -1,9 +1,9 @@
-package cc.aiknow.basicandroid.customview
+package cc.aiknow.basicandroid.androidcustomview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cc.aiknow.basicandroid.R
-import cc.aiknow.basicandroid.customview.view.TbHistogramView
+import cc.aiknow.basicandroid.androidcustomview.view.TbHistogramView
 import kotlinx.android.synthetic.main.activity_custom_view.*
 
 /**

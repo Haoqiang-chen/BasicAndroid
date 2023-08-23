@@ -33,6 +33,7 @@ import cc.aiknow.basicandroid.androidlayout.LayoutActivity;
 import cc.aiknow.basicandroid.androidlistview.ListViewActivity;
 import cc.aiknow.basicandroid.androidnested.NestedActivity;
 import cc.aiknow.basicandroid.androidnested.NestedScrollActivity;
+import cc.aiknow.basicandroid.androidnested.ScrollerActivity;
 import cc.aiknow.basicandroid.androidproceethread.ProcessAndThreadActivity;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewAdapter;
 import cc.aiknow.basicandroid.androidrecyclerview.MainRecyclerViewItemTouchHelper;
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("ViewClickEventActivity");
             add("NestedScrollActivity");
             add("NestedActivity");
+            add("ScrollerActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -176,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("ViewClickEventActivity", ViewClickEventActivity.class);
             put("NestedScrollActivity", NestedScrollActivity.class);
             put("NestedActivity", NestedActivity.class);
+            put("ScrollerActivity", ScrollerActivity.class);
         }};
     }
 

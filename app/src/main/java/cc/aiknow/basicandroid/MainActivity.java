@@ -218,4 +218,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     protected void onResume() {
         super.onResume();
     }
+
+
+//    public boolean dispatchTouchEvent(){
+//        boolean handled = false;
+//        // 首先判断是否可以拦截事件
+//        boolean intercept = false;
+//        if (可以拦截事件) {
+//            intercept = onInterceptTtouchEvent();
+//        }
+//        // 如果拦截事件，调用父控件自身事件消费方法
+//        if (intercept) {
+//            return super.dispatchTouchEvent();
+//        }
+//        // 否则查找子控件，询问子控件是否需要消费事件
+//        handled = child.dispatchTouchEvent();
+//        if (handled) {
+//            return true;
+//        }
+//        // 如果没有子控件消费事件，判断自身是否需要消费事件
+//        handled = super.dispatchTouchEvent();
+//        return handled;
+//    }
 }

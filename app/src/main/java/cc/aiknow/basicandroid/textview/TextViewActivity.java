@@ -1,15 +1,20 @@
 package cc.aiknow.basicandroid.textview;
 
+import static com.airbnb.lottie.LottieDrawable.RESTART;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -17,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 
 import cc.aiknow.basicandroid.R;
@@ -25,13 +33,37 @@ public class TextViewActivity extends AppCompatActivity {
 
     private EditText editText;
     private TextView textView;
-    private TextView testShadow;
+    private TextView testShadow, testAnim;
     private LabeledTextView labeledTextView;
+
+    private LottieAnimationView lottieAnimationView;
+
+    private MyHandler handler;
+
+    private CircleProgressBar circleProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_view);
         initView();
+        handler = new MyHandler(this);
+    }
+
+    private static class MyHandler extends Handler {
+        private WeakReference<TextViewActivity> textViewActivityWeakReference;
+
+        public MyHandler(TextViewActivity textViewActivity) {
+            this.textViewActivityWeakReference = new WeakReference<>(textViewActivity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (textViewActivityWeakReference.get() != null) {
+                textViewActivityWeakReference.get().setTestAnimText();
+            }
+            sendEmptyMessageDelayed(0, 30);
+        }
     }
 
     private void initView() {
@@ -78,6 +110,34 @@ public class TextViewActivity extends AppCompatActivity {
         // 使用文字阴影
         testShadow = findViewById(R.id.test_shadow);
         testShadow.setShadowLayer(10, 0, 20, Color.parseColor("#66000000"));
+        testShadow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handler.sendEmptyMessageDelayed(0, 30);
+            }
+        });
+
+        // 测试文字改变动画
+        testAnim = findViewById(R.id.test_anim);
+
+        lottieAnimationView = findViewById(R.id.test_view);
+//        lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        findViewById(R.id.test_lottie).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("che", "width：" + lottieAnimationView.getWidth() + "   height: " + lottieAnimationView.getHeight());
+                lottieAnimationView.setAnimation(R.raw.right_lottie);
+                lottieAnimationView.playAnimation();
+            }
+        });
+        circleProgressBar = findViewById(R.id.circleProgressBar);
+        circleProgressBar.setProgress(90);
+    }
+
+    public void setTestAnimText() {
+        CharSequence text = testAnim.getText();
+        int num = Integer.parseInt(text.toString()) + 1;
+        testAnim.setText("" + num);
     }
 
     public static String stringToUnicode(String str) {

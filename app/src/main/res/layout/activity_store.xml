@@ -58,6 +58,25 @@
         android:layout_marginTop="20dp"
         android:text="显示文件中的内容"/>
 
+    <Button
+        android:id="@+id/initDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showDataText"
+        android:layout_marginTop="20dp"
+        android:text="初始化数据库"/>
+
+    <Button
+        android:id="@+id/insertDbData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/initDb"
+        android:layout_marginTop="20dp"
+        android:text="数据库插入数据"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

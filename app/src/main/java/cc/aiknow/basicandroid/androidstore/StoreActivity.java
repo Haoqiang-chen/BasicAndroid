@@ -2,31 +2,42 @@ package cc.aiknow.basicandroid.androidstore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+import cc.aiknow.basicandroid.MyApplication;
 import cc.aiknow.basicandroid.R;
+import cc.aiknow.basicandroid.androidstore.database.DemoSQLiteOpenHelper;
 
 public class StoreActivity extends AppCompatActivity {
 
     private EditText sourceText;
-    private Button storeButton, getDataButton;
+    private Button storeButton, getDataButton, initDb, insertDbData;
     private TextView showDataText;
+    private DemoSQLiteOpenHelper demoSQLiteOpenHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         initView();
         initListener();
+        initDataBase();
+    }
+
+    private void initDataBase() {
+        demoSQLiteOpenHelper = new DemoSQLiteOpenHelper(this, "DemoSQLiteOpenHelper.db", null, DemoSQLiteOpenHelper.DATABASE_VERSION);
     }
 
     private void initView() {
@@ -34,6 +45,8 @@ public class StoreActivity extends AppCompatActivity {
         storeButton = findViewById(R.id.storeButton);
         getDataButton = findViewById(R.id.getDataButton);
         showDataText = findViewById(R.id.showDataText);
+        initDb = findViewById(R.id.initDb);
+        insertDbData = findViewById(R.id.insertDbData);
     }
 
     private void initListener() {
@@ -56,6 +69,25 @@ public class StoreActivity extends AppCompatActivity {
                 showDataText.setText(getTextFromFile());
             }
         });
+
+        initDb.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                SQLiteDatabase writableDatabase = demoSQLiteOpenHelper.getReadableDatabase();
+
+                File file = MyApplication.context.getFilesDir();
+                File database = new File(file.getPath() + File.separator + "DemoSQLiteOpenHelper.db");
+
+                SQLiteDatabase sqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(database, null);
+                sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+
+                SQLiteDatabase sqLiteDatabase1 =  StoreActivity.this.openOrCreateDatabase("ContextOpenOrCreateDatabase.db", Context.MODE_PRIVATE, null);
+                sqLiteDatabase1.execSQL("CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+
+            }
+        } );
 
     }
 

@@ -1,7 +1,5 @@
 package cc.aiknow.basicandroid.textview;
 
-import static com.airbnb.lottie.LottieDrawable.RESTART;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -9,9 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -25,7 +20,6 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.lang.ref.WeakReference;
-import java.util.Arrays;
 
 import cc.aiknow.basicandroid.R;
 
@@ -101,7 +95,7 @@ public class TextViewActivity extends AppCompatActivity {
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         linearLayout.addView(imageView);
         linearLayout.addView(text, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        linearLayout.setBackgroundColor(getResources().getColor(R.color.bule));
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.blue));
         linearLayout.setGravity(Gravity.CENTER_VERTICAL);
         linearLayout.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 

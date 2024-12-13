@@ -18,7 +18,7 @@
         android:id="@+id/property_view"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:background="@color/bule"
+        android:background="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

@@ -48,12 +48,14 @@ import cc.aiknow.basicandroid.androidstore.StoreActivity;
 import cc.aiknow.basicandroid.androidview.LearnViewActivity;
 import cc.aiknow.basicandroid.androidviewbinding.ViewBindingActivity;
 import cc.aiknow.basicandroid.androidvieweventandanima.ViewEventActivity;
+import cc.aiknow.basicandroid.androidviewpager.ViewPager2Activity;
 import cc.aiknow.basicandroid.androidviewpager.ViewPagerActivity;
 import cc.aiknow.basicandroid.androidwindow.WindowActivity;
 import cc.aiknow.basicandroid.androidbinder.BinderActivity;
 import cc.aiknow.basicandroid.androidcustomview.CustomViewActivity;
 import cc.aiknow.basicandroid.androidmultipleprocess.MultipleProcessActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
+import cc.aiknow.basicandroid.transition.TransitionActivity;
 import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
 import cc.aiknow.basicandroid.util.Utils;
 import cc.aiknow.basicandroid.viewevent.ViewClickEventActivity;
@@ -146,6 +148,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("NestedScrollActivity");
             add("NestedActivity");
             add("ScrollerActivity");
+            add("ViewPager2Activity");
+            add("TransitionActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -179,6 +183,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("NestedScrollActivity", NestedScrollActivity.class);
             put("NestedActivity", NestedActivity.class);
             put("ScrollerActivity", ScrollerActivity.class);
+            put("ViewPager2Activity", ViewPager2Activity.class);
+            put("TransitionActivity", TransitionActivity.class);
         }};
     }
 

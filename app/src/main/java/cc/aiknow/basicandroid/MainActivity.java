@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -78,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         NativeLog.log("start order", "MainActivity onCreate start");
+        // 设置不可截屏或者录屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         super.onCreate(savedInstanceState);
         Log.e("chenhaoqiang", Utils.getProcessName(this, android.os.Process.myPid()));
         ScreenSizeAdapter.changeTargetDeviceDensity(this, getApplication(), 360);

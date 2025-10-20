@@ -1,7 +1,10 @@
 package cc.aiknow.basicandroid.transition
 
 import android.graphics.Color
+import android.graphics.Matrix
+import android.graphics.RectF
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
@@ -13,15 +16,16 @@ class OneTransitionActivity : AppCompatActivity() {
         // Set up shared element transition
         val target: View = findViewById(android.R.id.content)
         target.transitionName = "sharedElement"
-        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-        window.sharedElementEnterTransition = MaterialContainerTransform(this, false).apply {
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback() )
+        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
             addTarget(target)
             scrimColor = Color.TRANSPARENT
             duration = 500
         }
-        window.sharedElementExitTransition = MaterialContainerTransform().apply {
+        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
             addTarget(target)
             scrimColor = Color.TRANSPARENT
+            duration = 500
 
         }
         super.onCreate(savedInstanceState)

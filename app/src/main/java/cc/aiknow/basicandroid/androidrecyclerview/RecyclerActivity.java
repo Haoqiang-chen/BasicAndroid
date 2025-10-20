@@ -1,5 +1,6 @@
 package cc.aiknow.basicandroid.androidrecyclerview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -75,6 +76,12 @@ public class RecyclerActivity extends AppCompatActivity {
 
         MultipleRecyclerViewAdapter multipleRecyclerViewAdapter = new MultipleRecyclerViewAdapter(this, dataBase);
         View header = LayoutInflater.from(this).inflate(R.layout.recycler_view_header, recyclerView, false);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RecyclerActivity.this, RecyclerAnimationActivity.class));
+            }
+        });
         multipleRecyclerViewAdapter.setHeaderView(header);
         multipleRecyclerViewAdapter.setFooterView(new RecyclerViewFooterView(recyclerView.getContext()));
         multipleRecyclerViewAdapter.setEmptyView(new RecyclerViewEmptyView(recyclerView.getContext()));

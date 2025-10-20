@@ -2,7 +2,11 @@ package cc.aiknow.basicandroid.transition
 
 import android.app.ActivityOptions
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Matrix
+import android.graphics.RectF
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Pair
 import android.view.View
 import android.widget.TextView
@@ -24,7 +28,19 @@ class TransitionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Set up shared element transition
-        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        setExitSharedElementCallback(object : MaterialContainerTransformSharedElementCallback() {
+            override fun onCaptureSharedElementSnapshot(
+                sharedElement: View,
+                viewToGlobalMatrix: Matrix,
+                screenBounds: RectF
+            ): Parcelable? {
+                return super.onCaptureSharedElementSnapshot(
+                    sharedElement,
+                    viewToGlobalMatrix,
+                    screenBounds
+                )
+            }
+        })
 
         super.onCreate(savedInstanceState)
 

@@ -7,13 +7,15 @@
  */
 apply plugin: 'com.android.application'  // 将APG中的com.android.application引入到当前构建文件中，使得可以在android代码块中定义android项目特有的构建设置
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
 
 /**
  * 定义用于Android项目的build配置设置
  */
 android {
-    compileSdkVersion 28  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
+    namespace "cc.aiknow.basicandroid"
+
+    compileSdkVersion 33  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
 
     /**
      * 默认设置：包括所有的默认设置和进入构建变种的入口
@@ -134,6 +136,8 @@ android {
     }
     buildFeatures {
         viewBinding true
+        // AGP 8.0 及更高版本中 aidl 的默认值变为 false
+        aidl = true
     }
 
     // 使用ViewBinding
@@ -154,6 +158,7 @@ dependencies {
     // 第一种依赖类型： 依赖本地library模块
     implementation project(':apt-library')
     annotationProcessor project(':apt-processor')
+    implementation project(":kmp")
     // 第二种依赖类型：依赖本地二进制文件, libs文件夹在该build文件所在Module下，因为Gradle会读取build文件的相对路径 TODO 后续将注解处理器改成aar形式(将注解使用jar包的形式引入项目)
 //    implementation files('src/libs/apt-annotation.jar')
     implementation fileTree(dir: 'src/libs', include: ['*.jar'])

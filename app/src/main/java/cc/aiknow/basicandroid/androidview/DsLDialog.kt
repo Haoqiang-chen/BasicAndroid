@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_web_view.view.*
 
 
 /**

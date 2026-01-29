@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_learn_view.*
+import cc.aiknow.basicandroid.databinding.ActivityLearnViewBinding
 
 /**
  * @Description: 自定义view的学习（应该系统学习）
@@ -17,9 +17,12 @@ import kotlinx.android.synthetic.main.activity_learn_view.*
  */
 class LearnViewActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLearnViewBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_learn_view)
+        binding = ActivityLearnViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 //        my_draw_view_loop.setOnClickListener {
 //            my_draw_view.loop()
 //        }
@@ -45,7 +48,7 @@ class LearnViewActivity : AppCompatActivity() {
 //            false
 //        }
 
-        btn.setOnClickListener {
+        binding.btn.setOnClickListener {
             createDialog(this,
                 dialogConfig = {
                     createAndConfig(

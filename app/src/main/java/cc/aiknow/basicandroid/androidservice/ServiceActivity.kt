@@ -4,14 +4,15 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
-import android.os.*
-import android.os.Build.VERSION_CODES.M
+import android.os.Bundle
+import android.os.Handler
+import android.os.IBinder
+import android.os.Message
+import android.os.Messenger
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cc.aiknow.basicandroid.R
-import cc.aiknow.basicandroid.androidaidl.IRemoteService
-import kotlinx.android.synthetic.main.activity_service.*
+import cc.aiknow.basicandroid.databinding.ActivityServiceBinding
 import java.lang.ref.WeakReference
 
 /**
@@ -25,6 +26,7 @@ class ServiceActivity : AppCompatActivity() {
     private var isBind: Boolean = false
     private var isMessengerServiceBind: Boolean = false
     private var myServiceConnection: MyServiceConnection? = null
+    private lateinit var binding: ActivityServiceBinding
 
     /**
      * 定义服务端的Messenger和客户端的Messenger
@@ -40,7 +42,7 @@ class ServiceActivity : AppCompatActivity() {
 
     private class MyClientHandler(val serviceActivity: ServiceActivity): Handler() {
         val serviceActivityWeakReference: WeakReference<ServiceActivity> = WeakReference(serviceActivity)
-        override fun handleMessage(msg: Message?) {
+        override fun handleMessage(msg: Message) {
             msg?.let {
                 if (msg.what == FLAG_CLIENT) {
                     Toast.makeText(serviceActivityWeakReference.get(), "服务端返回的数据", Toast.LENGTH_SHORT).show()
@@ -50,7 +52,8 @@ class ServiceActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_service)
+        binding = ActivityServiceBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListener()
         // 将Activity与绑定式服务进行绑定
         initBindService()
@@ -105,7 +108,7 @@ class ServiceActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
-        intentServiceButton.setOnClickListener {
+        binding.intentServiceButton.setOnClickListener {
             for (intentNum in 0 until 3) {
                 /**
                  * 启动IntentService启动式服务：通过Intent指定需要启动的服务
@@ -117,7 +120,7 @@ class ServiceActivity : AppCompatActivity() {
                 startService(i)
             }
         }
-        serviceButton.setOnClickListener {
+        binding.serviceButton.setOnClickListener {
             for (intentNum in 0 until 3) {
                 /**
                  * 启动Service启动式服务：通过Intent指定需要启动的服务
@@ -130,7 +133,7 @@ class ServiceActivity : AppCompatActivity() {
             }
         }
 
-        foregroundServiceButton.setOnClickListener {
+        binding.foregroundServiceButton.setOnClickListener {
             val intent = Intent().apply {
                 setClass(this@ServiceActivity, MyForegroundService::class.java)
                 putExtra("foreground","这是传入的数据")
@@ -141,7 +144,7 @@ class ServiceActivity : AppCompatActivity() {
         /**
          * 测试绑定式服务
          */
-        bindServiceTestButton.setOnClickListener {
+        binding.bindServiceTestButton.setOnClickListener {
             if (isBind) {
                 Toast.makeText(this, "服务已绑定，接收的服务数据为：  " + myBindService?.testData(), Toast.LENGTH_SHORT).show()
             } else {
@@ -152,7 +155,7 @@ class ServiceActivity : AppCompatActivity() {
         /**
          * 接触绑定式服务
          */
-        bindServiceUnbindButton.setOnClickListener {
+        binding.bindServiceUnbindButton.setOnClickListener {
             unbindService(myServiceConnection!!)
             isBind = false
         }
@@ -160,7 +163,7 @@ class ServiceActivity : AppCompatActivity() {
         /**
          * 采用Mesaenger与服务端进行通信
          */
-        bindServiceMessengerClientButton.setOnClickListener {
+        binding.bindServiceMessengerClientButton.setOnClickListener {
             if (isMessengerServiceBind) {
                 val message = Message.obtain(null, MyMessengerBindService.FLAG_SERVICE, 0, 0)
                 message.replyTo = clientMessenger
@@ -171,7 +174,7 @@ class ServiceActivity : AppCompatActivity() {
         /**
          * 手动调起服务端的服务
          */
-        bindServiceRemoteButton.setOnClickListener {
+        binding.bindServiceRemoteButton.setOnClickListener {
             val intent = Intent().apply {
                 setClass(this@ServiceActivity, MyRemoteService::class.java)
             }

@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    namespace "com.example.apt_library"
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 

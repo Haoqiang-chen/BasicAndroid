@@ -25,10 +25,10 @@ buildscript {
     // 依赖代码块：用于表示Gradle用来构建项目时需要的依赖项
     dependencies {
         // Gradle插件版本，是Google定义的，即 Android gradle plugin 的版本
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:8.13.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.21'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }

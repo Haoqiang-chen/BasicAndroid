@@ -10,23 +10,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import cc.aiknow.basicandroid.R
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_image.*
+import cc.aiknow.basicandroid.databinding.ActivityImageBinding
 import java.util.*
 
 
 class ImageActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityImageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image)
-        val lp: ConstraintLayout.LayoutParams = testGradientDrawable.layoutParams as ConstraintLayout.LayoutParams
+        binding = ActivityImageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val lp: ConstraintLayout.LayoutParams = binding.testGradientDrawable.layoutParams as ConstraintLayout.LayoutParams
         lp.height = 400
-        testGradientDrawable.layoutParams = lp
+        binding.testGradientDrawable.layoutParams = lp
 
         // 将分享内容转换成包含水印背景的Bitmap
         val originWaterMarkingBitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.pic_pb_post_share_watermarking);
         Log.e("chenhaoqiang", "0   " + originWaterMarkingBitmap.width + "  " + originWaterMarkingBitmap.height)
         val repeatBitmap = createRepeatBitmap(originWaterMarkingBitmap, originWaterMarkingBitmap.width, 400)
-        testGradientDrawable.background = BitmapDrawable(repeatBitmap)
+        binding.testGradientDrawable.background = BitmapDrawable(repeatBitmap)
 
         val metric = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metric)
@@ -40,7 +44,7 @@ class ImageActivity : AppCompatActivity() {
 
         Log.e("chenhaoqiang", "$width   $height    $density    $densityDpi")
 
-        originImage.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.stamp))
+        binding.originImage.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.stamp))
 
         setContrastBitmap(0f)
 
@@ -55,13 +59,13 @@ class ImageActivity : AppCompatActivity() {
 
 
 
-        contrastText.text = "对比度: 0"
-        seekbar.max = 100
-        seekbar.min = -100
-        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.contrastText.text = "对比度: 0"
+        binding.seekbar.max = 100
+        binding.seekbar.min = -100
+        binding.seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                contrast = progress
-                contrastText.text = "对比度: " + contrast
+                binding.contrastText.text = "对比度: " + contrast
                 setContrastBitmap(brightness, contrast, saturation, hue)
             }
 
@@ -74,13 +78,13 @@ class ImageActivity : AppCompatActivity() {
             }
         })
 
-        lightText.text = "亮度：0"
-        seekbarLight.max = 100
-        seekbarLight.min = -100
-        seekbarLight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.lightText.text = "亮度：0"
+        binding.seekbarLight.max = 100
+        binding.seekbarLight.min = -100
+        binding.seekbarLight.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 brightness = progress
-                lightText.text = "亮度：" + brightness
+                binding.lightText.text = "亮度：" + brightness
                 setContrastBitmap(brightness, contrast, saturation, hue)
             }
 
@@ -94,13 +98,13 @@ class ImageActivity : AppCompatActivity() {
         })
 
 
-        saturationText.text = "饱和度：0"
-        seekbarSaturation.max = 100
-        seekbarSaturation.min = -100
-        seekbarSaturation.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.saturationText.text = "饱和度：0"
+        binding.seekbarSaturation.max = 100
+        binding.seekbarSaturation.min = -100
+        binding.seekbarSaturation.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 saturation = progress
-                saturationText.text = "饱和度：" + saturation
+                binding.saturationText.text = "饱和度：" + saturation
                 setContrastBitmap(brightness, contrast, saturation, hue)
             }
 
@@ -113,13 +117,13 @@ class ImageActivity : AppCompatActivity() {
             }
         })
 
-        hueText.text = "色调：0"
-        seekbarHue.max = 100
-        seekbarHue.min = -100
-        seekbarHue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.hueText.text = "色调：0"
+        binding.seekbarHue.max = 100
+        binding.seekbarHue.min = -100
+        binding.seekbarHue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 hue = progress
-                hueText.text = "色调：" + hue
+                binding.hueText.text = "色调：" + hue
                 setContrastBitmap(brightness, contrast, saturation, hue)
 
             }
@@ -146,7 +150,7 @@ class ImageActivity : AppCompatActivity() {
         val colorMatrixColorFilter = setContrast(value)
         paint.setColorFilter(colorMatrixColorFilter)
         canvas.drawBitmap(stampBitmap,0.0f, 0.0f, paint)
-        testContrast.setImageBitmap(faceIconGreyBitmap)
+        binding.testContrast.setImageBitmap(faceIconGreyBitmap)
     }
 
     private fun setContrastBitmap(brightness: Int, contrast: Int, saturation: Int, hue: Int) {
@@ -159,7 +163,7 @@ class ImageActivity : AppCompatActivity() {
         val colorMatrixColorFilter = ColorFilterGenerator.adjustColor(brightness, contrast, saturation, hue)
         paint.setColorFilter(colorMatrixColorFilter)
         canvas.drawBitmap(stampBitmap,0.0f, 0.0f, paint)
-        testContrast.setImageBitmap(faceIconGreyBitmap)
+        binding.testContrast.setImageBitmap(faceIconGreyBitmap)
     }
 
     fun getConvertedValue(intVal: Int): Float {

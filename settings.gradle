@@ -5,3 +5,4 @@ include ':app'
 include ':client'
 
 println("setting gralde")
+include ':kmp'

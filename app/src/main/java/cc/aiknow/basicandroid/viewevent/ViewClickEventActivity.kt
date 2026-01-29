@@ -9,7 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_view_click_event.*
+import cc.aiknow.basicandroid.databinding.ActivityViewClickEventBinding
 
 /**
  * @Description: 事件分发机制测试 demo
@@ -19,18 +19,22 @@ import kotlinx.android.synthetic.main.activity_view_click_event.*
  * @Version: 1.0
  */
 class ViewClickEventActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityViewClickEventBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_view_click_event)
+        binding = ActivityViewClickEventBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        view.setOnClickListener {
+        binding.view.setOnClickListener {
             Log.e("chenhaoqiang", "执行点击监听")
         }
-        view.setOnLongClickListener {
+        binding.view.setOnLongClickListener {
             Log.e("chenhaoqiang", "执行长按监听")
             false
         }
-        view.setOnTouchListener { v, event ->
+        binding.view.setOnTouchListener { v, event ->
             Log.e("chenhaoqiang", "执行OnTouchListener")
             false
         }

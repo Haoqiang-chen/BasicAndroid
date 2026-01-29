@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_scroller.*
+import cc.aiknow.basicandroid.databinding.ActivityScrollerBinding
 
 /**
  * @Description: 滑动辅助组件的相关使用Demo
@@ -13,9 +13,13 @@ import kotlinx.android.synthetic.main.activity_scroller.*
  * @Version: 1.0
  */
 class ScrollerActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityScrollerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scroller)
-        clickBtn.setOnClickListener { scrollerText.startScroll() }
+        binding = ActivityScrollerBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.clickBtn.setOnClickListener { binding.scrollerText.startScroll() }
     }
 }

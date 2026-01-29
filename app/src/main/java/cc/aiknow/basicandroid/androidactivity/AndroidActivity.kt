@@ -7,7 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_android.*
+import cc.aiknow.basicandroid.databinding.ActivityAndroidBinding
+
 /**
  * @Description: 用于声明周期得验证、显式启动Activity
  * @Author: chen
@@ -15,16 +16,19 @@ import kotlinx.android.synthetic.main.activity_android.*
  */
 class AndroidActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityAndroidBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_android)
+        binding = ActivityAndroidBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListener()
         Toast.makeText(this, "Father---create", Toast.LENGTH_SHORT).show()
         Log.i("Father---", "create")
     }
 
     private fun initListener() {
-        activityA.setOnClickListener {
+        binding.activityA.setOnClickListener {
             // 显式启动Activity A
             val i = Intent()
             // TODO 类引用的Kotlin学习
@@ -33,7 +37,7 @@ class AndroidActivity : AppCompatActivity() {
             i.setClass(this, AActivity::class.java)
             startActivity(i)
         }
-        activityB.setOnClickListener {
+        binding.activityB.setOnClickListener {
             // 隐式启动Activity B 注意隐式启动Activity时Intent中数据的匹配规则
             val i = Intent().apply {
                 action = "activityB_action"

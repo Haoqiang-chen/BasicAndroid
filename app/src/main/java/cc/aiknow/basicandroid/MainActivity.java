@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kmp.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -117,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
         // 调用变体中的代码
         new DemoTest();
         NativeLog.log("start order", "MainActivity onCreate end");
+
+        new Test().test();
     }
 
     private void initDataBase() {

@@ -12,17 +12,21 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.ImageViewTarget
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.activity_big_image_view.*
+import cc.aiknow.basicandroid.databinding.ActivityBigImageViewBinding
 import java.io.InputStream
 
 class BigImageViewActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityBigImageViewBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_big_image_view)
+        binding = ActivityBigImageViewBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val inputStream = resources.openRawResource(R.drawable.big_image)
-        bigView.setImageUrl(inputStream)
-        gif.scaleType = ImageView.ScaleType.MATRIX
-        Glide.with(gif)
+        binding.bigView.setImageUrl(inputStream)
+        binding.gif.scaleType = ImageView.ScaleType.MATRIX
+        Glide.with(binding.gif)
             .load(R.drawable.test_gif).listener(object : RequestListener<Drawable?> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -51,10 +55,10 @@ class BigImageViewActivity : AppCompatActivity() {
                     return false
                 }
             })
-            .into(gif)
+            .into(binding.gif)
 
-        Glide.with(gif_test).load(R.drawable.test_gif).into(gif_test)
+        Glide.with(binding.gifTest).load(R.drawable.test_gif).into(binding.gifTest)
 
-        Glide.with(webp_test).load(R.drawable.pb_icon_tail).into(webp_test)
+        Glide.with(binding.webpTest).load(R.drawable.pb_icon_tail).into(binding.webpTest)
     }
 }

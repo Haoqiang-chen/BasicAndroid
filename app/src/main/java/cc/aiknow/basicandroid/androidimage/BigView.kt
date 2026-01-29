@@ -97,12 +97,12 @@ class BigView : View, GestureDetector.OnGestureListener, View.OnTouchListener {
         setOnTouchListener(this)
     }
 
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+    override fun onTouch(v: View, event: MotionEvent): Boolean {
         // 将屏幕点击事件委托给手机检测处理
         return mGestureDetector.onTouchEvent(event)
     }
 
-    override fun onDown(e: MotionEvent?): Boolean {
+    override fun onDown(e: MotionEvent): Boolean {
         // 当用户点击时，如果图片在滑动时，强制停止滑动
         if (!mScroller.isFinished) {
             mScroller.forceFinished(true)
@@ -110,15 +110,15 @@ class BigView : View, GestureDetector.OnGestureListener, View.OnTouchListener {
         return true
     }
 
-    override fun onShowPress(e: MotionEvent?) {
+    override fun onShowPress(e: MotionEvent) {
 
     }
 
-    override fun onSingleTapUp(e: MotionEvent?): Boolean {
+    override fun onSingleTapUp(e: MotionEvent): Boolean {
         return false
     }
 
-    override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+    override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
         // 滑动过程中设置分块加载的区域
         mRect.offset(0, distanceY.toInt())
         // 边界处理，如果底部超过图片高度，设置为图片高度
@@ -137,11 +137,11 @@ class BigView : View, GestureDetector.OnGestureListener, View.OnTouchListener {
         return false
     }
 
-    override fun onLongPress(e: MotionEvent?) {
-        TODO("Not yet implemented")
+    override fun onLongPress(e: MotionEvent) {
+
     }
 
-    override fun onFling(e1: MotionEvent?, e2: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+    override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
         // 将惯性滑动委托给Scroller进行计算
         mScroller.fling(0, mRect.top, 0, -velocityY.toInt(), 0, 0, 0, imageHeight - viewHeight)
         return false

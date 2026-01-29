@@ -5,12 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_recycler_list_adapter.*
+import cc.aiknow.basicandroid.databinding.ActivityRecyclerListAdapterBinding
 
 class RecyclerListAdapterActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityRecyclerListAdapterBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recycler_list_adapter)
+        binding = ActivityRecyclerListAdapterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val mDataList = mutableListOf<String>()
         for (i in 1 .. 30) {
             mDataList.add("$i")
@@ -25,8 +29,8 @@ class RecyclerListAdapterActivity : AppCompatActivity() {
             listAdapter.submitList(newDataList)
             listAdapter.notifyDataSetChanged()
         }
-        listAdapterRecyclerView.layoutManager = LinearLayoutManager(this)
-        listAdapterRecyclerView.adapter = listAdapter
+        binding.listAdapterRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.listAdapterRecyclerView.adapter = listAdapter
 
     }
 }

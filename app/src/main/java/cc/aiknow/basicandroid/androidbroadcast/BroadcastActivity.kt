@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cc.aiknow.basicandroid.R
-import kotlinx.android.synthetic.main.activity_broadcast.*
+import cc.aiknow.basicandroid.databinding.ActivityBroadcastBinding
 
 /**
  * @Description: 用于学习广播接收器的页面
@@ -17,15 +17,17 @@ import kotlinx.android.synthetic.main.activity_broadcast.*
 class BroadcastActivity : AppCompatActivity() {
 //    private lateinit var myBroadcastReceiver:MyBroadcastReceiver
     private val myBroadcastReceiver = MyBroadcastReceiver()
+    private lateinit var binding: ActivityBroadcastBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_broadcast)
+        binding = ActivityBroadcastBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initListener()
     }
 
     private fun initListener() {
-        buttonBroadcastRegister.setOnClickListener {
+        binding.buttonBroadcastRegister.setOnClickListener {
             // 注册广播步骤
             // 首先定义Intent过滤器
             val intentFilter = IntentFilter().apply {
@@ -40,7 +42,7 @@ class BroadcastActivity : AppCompatActivity() {
         }
 
         // 发送广播
-        buttonSendBroadcast.setOnClickListener {
+        binding.buttonSendBroadcast.setOnClickListener {
             Toast.makeText(this, "广播已发送", Toast.LENGTH_SHORT).show()
             // 发送广播步骤
             // 首先定义广播：用Intent进行封装
@@ -52,7 +54,7 @@ class BroadcastActivity : AppCompatActivity() {
             sendBroadcast(intent)
         }
 
-        buttonUnRegisterBroadcast.setOnClickListener {
+        binding.buttonUnRegisterBroadcast.setOnClickListener {
             // 在需要的时候取消广播接收器的注册，以避免内存泄漏
             Toast.makeText(this, "广播接收器已取消注册", Toast.LENGTH_SHORT).show()
             unregisterReceiver(myBroadcastReceiver)

@@ -20,7 +20,7 @@ class RecyclerAnimationActivity : AppCompatActivity() {
 
     private val dataList = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
 
-    private var task: LoopTask? = null
+    private lateinit var task: LoopTask
 
     private lateinit var rv: RecyclerView
 

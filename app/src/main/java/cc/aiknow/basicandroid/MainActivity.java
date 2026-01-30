@@ -57,6 +57,7 @@ import cc.aiknow.basicandroid.androidwindow.WindowActivity;
 import cc.aiknow.basicandroid.androidbinder.BinderActivity;
 import cc.aiknow.basicandroid.androidcustomview.CustomViewActivity;
 import cc.aiknow.basicandroid.androidmultipleprocess.MultipleProcessActivity;
+import cc.aiknow.basicandroid.compose.ComposeActivity;
 import cc.aiknow.basicandroid.textview.TextViewActivity;
 import cc.aiknow.basicandroid.transition.TransitionActivity;
 import cc.aiknow.basicandroid.util.ScreenSizeAdapter;
@@ -157,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             add("ScrollerActivity");
             add("ViewPager2Activity");
             add("TransitionActivity");
+            add("ComposeActivity");
 
         }};
         itemDataBase = new HashMap<String, Class<?>>(){{
@@ -192,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewItemC
             put("ScrollerActivity", ScrollerActivity.class);
             put("ViewPager2Activity", ViewPager2Activity.class);
             put("TransitionActivity", TransitionActivity.class);
+            put("ComposeActivity", ComposeActivity.class);
         }};
     }
 

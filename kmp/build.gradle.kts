@@ -59,7 +59,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
+                implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.21")
                 // Add KMP dependencies here
             }
         }

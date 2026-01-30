@@ -8,6 +8,8 @@
 apply plugin: 'com.android.application'  // 将APG中的com.android.application引入到当前构建文件中，使得可以在android代码块中定义android项目特有的构建设置
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
+// Kotlin 2.0+ 推荐使用 Compose Compiler 插件，使用Compose必须要用这个设置
+apply plugin: 'org.jetbrains.kotlin.plugin.compose'
 
 /**
  * 定义用于Android项目的build配置设置
@@ -15,7 +17,7 @@ apply plugin: 'kotlin-parcelize'
 android {
     namespace "cc.aiknow.basicandroid"
 
-    compileSdkVersion 33  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
+    compileSdkVersion 36  // 定义Gradle编译该模块时使用的Android API 版本，即在该模块中可以使用改版本及以下的Android特型
 
     /**
      * 默认设置：包括所有的默认设置和进入构建变种的入口
@@ -138,6 +140,8 @@ android {
         viewBinding true
         // AGP 8.0 及更高版本中 aidl 的默认值变为 false
         aidl = true
+        // 启用 Compose
+        compose true
     }
 
     // 使用ViewBinding
@@ -176,7 +180,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.ext.kotlinVersion}"
+    // Kotlin 1.8+ 标准库已包含 jdk7/8 变体，直接使用 kotlin-stdlib 即可
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${rootProject.ext.kotlinVersion}"
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -185,4 +190,21 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'com.airbnb.android:lottie:3.4.4'
 //    implementation 'androidx.core:core:1.9.0'
+
+    // Compose 依赖配置 (使用 BOM 管理版本)
+    def composeBom = platform('androidx.compose:compose-bom:2024.10.01')
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    // Compose 基础库
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+
+    // Compose 调试工具
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    implementation("androidx.activity:activity-compose")
 }

@@ -157,6 +157,11 @@
         <activity android:name=".androidactivity.CActivity" />
         <activity android:name=".androidcontentprovider.ContentProviderActivity" />
 
+        <activity
+            android:name=".compose.ComposeActivity"
+            android:label="Compose Demo"
+            android:exported="true" />
+
         <provider
             android:name=".androidcontentprovider.SelfContentProvider"
             android:authorities="cc.aiknow.basicandroid.androidcontentprovider" />
